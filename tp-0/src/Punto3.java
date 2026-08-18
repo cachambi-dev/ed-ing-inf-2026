@@ -1,5 +1,4 @@
 import java.util.Scanner;
-import java.util.Locale.Category;
 
 public class Punto3 {
   public static void main(String[] args) {

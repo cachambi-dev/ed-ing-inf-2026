@@ -53,9 +53,10 @@ O bien, puedes abrir la carpeta raíz del proyecto directamente en tu IDE prefer
 ---
 
 ## 📖 Temario Principal de la Materia
-Durante la cursada se desarrollan las siguientes áreas clave:
-1. **Tipos Abstractos de Datos (TADs)** e Implementaciones de Memoria Dinámica.
-2. **Estructuras Lineales:** Listas enlazadas (simples, dobles, circulares), Pilas (Stacks) y Colas (Queues).
-3. **Estructuras No Lineales:** Árboles (Árboles Binarios de Búsqueda, AVL) y Grafos.
-4. **Algoritmos de Búsqueda y Ordenamiento.**
-5. **Manejo de Complejidad Computacional (Notación Big O).**
+
+*   **Abstracciones:** Realización de tipos abstractos mediante módulos.
+*   **Pilas y Colas:** Especificación, y realizaciones estáticas y dinámicas.
+*   **Listas:** Especificación y realización.
+*   **Árboles:** Especificación, realizaciones y operaciones sobre árboles.
+*   **Implementación:** Implementación de las estructuras en un lenguaje de programación, estrategias de implementación de diferentes estructuras y manejo de memoria en ejecuciones.
+

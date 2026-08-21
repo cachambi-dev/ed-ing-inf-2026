@@ -16,12 +16,12 @@ Este repositorio contiene las resoluciones de los trabajos prácticos de la asig
 
 El repositorio está organizado por Trabajos Prácticos (TPs):
 
-*   **[TP0 — Práctico N° 0: Programación Básica](file:///home/cachambi/Code/Personal/ed-ing-inf-2026/src/main/java/ed2026/TP0/README.md):** Consignas, indicaciones y preguntas de autoevaluación.
-    *   [Punto1.java](file:///home/cachambi/Code/Personal/ed-ing-inf-2026/src/main/java/ed2026/TP0/Punto1.java)
-    *   [Punto2.java](file:///home/cachambi/Code/Personal/ed-ing-inf-2026/src/main/java/ed2026/TP0/Punto2.java)
-    *   [Punto3.java](file:///home/cachambi/Code/Personal/ed-ing-inf-2026/src/main/java/ed2026/TP0/Punto3.java)
-    *   [Punto4.java](file:///home/cachambi/Code/Personal/ed-ing-inf-2026/src/main/java/ed2026/TP0/Punto4.java)
-*   **[TP1 — Práctico N° 1](file:///home/cachambi/Code/Personal/ed-ing-inf-2026/src/main/java/ed2026/TP1):** Tipos Abstractos de Datos (TADs) y modelado orientado a objetos.
+*   **[TP0 — Práctico N° 0: Programación Básica](./src/main/java/ed2026/TP0/README.md):** Consignas, indicaciones y preguntas de autoevaluación.
+    *   [Punto1.java](./src/main/java/ed2026/TP0/Punto1.java)
+    *   [Punto2.java](./src/main/java/ed2026/TP0/Punto2.java)
+    *   [Punto3.java](./src/main/java/ed2026/TP0/Punto3.java)
+    *   [Punto4.java](./src/main/java/ed2026/TP0/Punto4.java)
+*   **[TP1 — Práctico N° 1](./src/main/java/ed2026/TP1):** Tipos Abstractos de Datos (TADs) y modelado orientado a objetos.
 
 ---
 

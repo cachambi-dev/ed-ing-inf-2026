@@ -17,7 +17,7 @@ Permite ejercitar las estructuras de control de ejecución (secuencial, decisió
 
 ## 📌 Ejercicios Propuestos
 
-### 🔹 Ejercicio 1: Cálculo del Salario Neto
+### 🔹 Ejercicio 1: Cálculo del Salario Neto ([Punto1.java](./Punto1.java))
 Desarrollar un programa que calcule el salario neto de un trabajador en función de las horas trabajadas.
 
 #### Consigna:
@@ -49,7 +49,7 @@ d) ¿Qué resultados se obtienen si el empleado no realizó horas extras?
 
 ---
 
-### 🔹 Ejercicio 2: Simulador de Registro de Temperaturas
+### 🔹 Ejercicio 2: Simulador de Registro de Temperaturas ([Punto2.java](./Punto2.java))
 Desarrollar un programa que simule el registro de temperaturas de un sensor durante un día.
 
 #### Consigna:
@@ -72,7 +72,7 @@ d) Ahora se desea conocer también la temperatura máxima y mínima registrada. 
 
 ---
 
-### 🔹 Ejercicio 3: Rendimiento Académico de un Estudiante
+### 🔹 Ejercicio 3: Rendimiento Académico de un Estudiante ([Punto3.java](./Punto3.java))
 Desarrollar un programa que calcule y clasifique el rendimiento de un estudiante en un examen.
 
 #### Consigna:
@@ -100,7 +100,7 @@ c) Un compañero escribe la siguiente línea para calcular el porcentaje:
 
 ---
 
-### 🔹 Ejercicio 4: Calculadora de Figuras Geométricas
+### 🔹 Ejercicio 4: Calculadora de Figuras Geométricas ([Punto4.java](./Punto4.java))
 Desarrollar una calculadora interactiva de áreas geométricas con menú de opciones.
 
 #### Consigna:

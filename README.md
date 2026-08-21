@@ -21,7 +21,8 @@ El repositorio está organizado por Trabajos Prácticos (TPs):
     *   [Punto2.java](./src/main/java/ed2026/TP0/Punto2.java)
     *   [Punto3.java](./src/main/java/ed2026/TP0/Punto3.java)
     *   [Punto4.java](./src/main/java/ed2026/TP0/Punto4.java)
-*   **[TP1 — Práctico N° 1](./src/main/java/ed2026/TP1):** Tipos Abstractos de Datos (TADs) y modelado orientado a objetos.
+*   **[TP1 — Práctico N° 1: Programación Orientada a Objetos (POO)](./src/main/java/ed2026/TP1/README.md):** Consignas, indicaciones y preguntas sobre POO.
+    *   [Cilindro.java](./src/main/java/ed2026/TP1/src/puntos/p1/Cilindro.java)
 
 ---
 

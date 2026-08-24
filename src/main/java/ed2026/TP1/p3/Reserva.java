@@ -54,10 +54,12 @@ public class Reserva {
 
     public void setFechaCheckIn(LocalDate fechaCheckIn) {
         this.fechaCheckIn = fechaCheckIn;
+        validarFechas();
     }
 
     public void setFechaCheckOut(LocalDate fechaCheckOut) {
         this.fechaCheckOut = fechaCheckOut;
+        validarFechas();
     }
 
     public void setNombreHuesped(String nombreHuesped) {
@@ -65,19 +67,20 @@ public class Reserva {
     }
 
     public boolean estaActiva(LocalDate fechaConsulta) {
+        if (fechaConsulta == null) return false;
         return (fechaConsulta.isAfter(fechaCheckIn) || fechaCheckIn.isEqual(fechaConsulta)) && fechaConsulta.isBefore(fechaCheckOut);
     }
 
-    public int calcularDiasRestantesOTrasncurrido(LocalDate FechaConsulta) {
-        if (FechaConsulta.isBefore(this.fechaCheckIn)) {
-            return (int) ChronoUnit.DAYS.between(FechaConsulta, this.fechaCheckIn);
-        } else if (estaActiva(FechaConsulta)) {
+    public int calcularDiasRestantesOTranscurridos(LocalDate fechaConsulta) {
+        if (fechaConsulta == null) return 0;
+        if (fechaConsulta.isBefore(this.fechaCheckIn)) {
+            return (int) ChronoUnit.DAYS.between(fechaConsulta, this.fechaCheckIn);
+        } else if (estaActiva(fechaConsulta)) {
             return 0;
         } else {
-            int diasPasados = (int) ChronoUnit.DAYS.between(this.fechaCheckOut, FechaConsulta);
+            int diasPasados = (int) ChronoUnit.DAYS.between(this.fechaCheckOut, fechaConsulta);
             return -diasPasados;
         }
-
     }
 
     public LocalDate simularProrroga(int cantidadDias) {
@@ -86,11 +89,11 @@ public class Reserva {
 
     @Override
     public String toString() {
-        return "Reserva{"
-                + "codigoReserva='" + codigoReserva + '\''
-                + ", nombreHuesped='" + nombreHuesped + '\''
-                + ", fechaCheckIn=" + fechaCheckIn
-                + ", fechaCheckOut=" + fechaCheckOut
-                + '}';
+        return "Reserva ["
+                + "Código: " + codigoReserva
+                + ", Huésped: '" + nombreHuesped + '\''
+                + ", Check-In: " + fechaCheckIn
+                + ", Check-Out: " + fechaCheckOut
+                + ']';
     }
 }

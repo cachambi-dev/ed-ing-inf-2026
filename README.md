@@ -7,8 +7,8 @@ Este repositorio contiene las resoluciones de los trabajos prácticos de la asig
 ## 🛠️ Tecnologías y Herramientas
 
 *   **Lenguaje de Programación:** Java
-*   **Gestión de Versiones:** Git & GitLab
-*   **Entornos de Desarrollo Recomendados:** IntelliJ IDEA, Eclipse, o VS Code (con la extensión *Extension Pack for Java*).
+*   **Gestión de Versiones:** Git & Github
+*   **Entornos de Desarrollo Recomendados:** IntelliJ IDEA o VS Code (con la extensión *Extension Pack for Java*).
 
 ---
 
@@ -16,13 +16,9 @@ Este repositorio contiene las resoluciones de los trabajos prácticos de la asig
 
 El repositorio está organizado por Trabajos Prácticos (TPs):
 
-*   **[TP0 — Práctico N° 0: Programación Básica](./src/main/java/ed2026/TP0/README.md):** Consignas, indicaciones y preguntas de autoevaluación.
-    *   [Punto1.java](./src/main/java/ed2026/TP0/Punto1.java)
-    *   [Punto2.java](./src/main/java/ed2026/TP0/Punto2.java)
-    *   [Punto3.java](./src/main/java/ed2026/TP0/Punto3.java)
-    *   [Punto4.java](./src/main/java/ed2026/TP0/Punto4.java)
-*   **[TP1 — Práctico N° 1: Programación Orientada a Objetos (POO)](./src/main/java/ed2026/TP1/README.md):** Consignas, indicaciones y preguntas sobre POO.
-    *   [Cilindro.java](./src/main/java/ed2026/TP1/src/puntos/p1/Cilindro.java)
+*   **TP0 — Práctico N° 0: Programación Básica:** Consignas, indicaciones y preguntas de autoevaluación.
+*   **TP1 — Práctico N° 1: Programación Orientada a Objetos (POO):** Consignas, indicaciones y preguntas sobre POO.
+*   **TP2 — Práctico N° 2: Listas** Consignas, indicaciones y preguntas sobre Listas
 
 ---
 
@@ -36,8 +32,8 @@ java -version
 
 ### 2. Clonar el repositorio
 ```bash
-git clone https://gitlab.com/ing-informatica2/ed-2026.git
-cd ed-2026
+git clone https://github.com/cachambi/ed-ing-inf-2026.git
+cd ed-ing-inf-2026
 ```
 
 ### 3. Compilación y Ejecución por Consola

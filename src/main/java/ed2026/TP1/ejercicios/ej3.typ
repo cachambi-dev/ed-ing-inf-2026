@@ -42,23 +42,32 @@ Desarrollar un programa que simule la gestión de una reserva de hotel con fecha
 
 #resolucion(titulo: "Resolución del Ejercicio 3")[
   #respuesta("a")[
-    // Escribir aquí la respuesta a)
+    - *Encapsulamiento y Protección de Invariantes:* La consistencia de las fechas es una regla de negocio del modelo. Al encapsular la validación en un método auxiliar privado (`private void validarFechas()`), la clase `Reserva` garantiza que toda instancia que se cree en cualquier parte del sistema nazca en un estado válido.
+    - *Problema si se valida solo en el `main`:* Se produciría *fuga de lógica* y acoplamiento. Cualquier otro punto del sistema que instancie una `Reserva` sin pasar por el `main` podría crear objetos con fechas inconsistentes (ej. check-in posterior al check-out).
   ]
+
   #respuesta("b")[
-    // Escribir aquí la respuesta b)
+    El inciso (e) exige que la fecha de check-in sea estrictamente anterior a la de check-out (`fechaCheckIn.isBefore(fechaCheckOut)`). Si el usuario ingresa la misma fecha para ambos eventos, la condición no se cumple.
+    En consecuencia, el método auxiliar `validarFechas()` ajusta automáticamente los atributos del objeto asignando la fecha de hoy (`LocalDate.now()`) al check-in y el día de mañana (`LocalDate.now().plusDays(1)`) al check-out.
   ]
+
   #respuesta("c")[
-    // Escribir aquí la respuesta c)
+    Dada la reserva del `2025-05-01` al `2025-05-05` y `fechaConsulta = 2025-05-03`:
+    - *`estaActiva(2025-05-03)` retorna `true`:* Porque la fecha de consulta se encuentra dentro del rango de vigencia ($"2025-05-01" <= "2025-05-03" < "2025-05-05"$).
+    - *`calcularDiasRestantesOTranscurridos(2025-05-03)` retorna `0`:* Al ser una reserva activa en esa fecha, el método devuelve exactamente `0` indicando que la estadía está en curso.
   ]
+
   #respuesta("d")[
-    // Escribir aquí la respuesta d)
+    *No constituye ningún error; es la implementación óptima y correcta.*
+    - *Inmutabilidad en `LocalDate`:* En la API de fechas de Java (`java.time`), los objetos `LocalDate` son *inmutables*. La invocación `.plusDays(cantidadDias)` no modifica `this.fechaCheckOut`, sino que genera y retorna una nueva instancia con el cálculo aplicado.
+    - *Cumplimiento de la consigna:* El inciso (h) solicita *simular* una prórroga. Al no alterar el estado real del objeto y solo devolver la fecha tentativa resultante, cumple con exactitud con lo pedido.
   ]
 
   *Código Fuente (`Reserva.java`):*
-  ```java
-  // Inserte o importe aquí su solución en Java
-  // Tip: podés usar `#raw(read("../p3/Reserva.java"), lang: "java")` para cargarlo automáticamente
-  ```
+  #raw(read("../p3/Reserva.java"), lang: "java")
+
+  *Código Fuente Principal (`Tp1_03.java`):*
+  #raw(read("../p3/Tp1_03.java"), lang: "java")
 ]
 
 #line(length: 100%, stroke: 0.5pt + rgb("#e2e8f0"))

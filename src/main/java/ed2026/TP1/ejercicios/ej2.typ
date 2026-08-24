@@ -33,23 +33,39 @@ Crear una clase llamada `CuentaBancaria` que modele una cuenta bancaria.
 
 #resolucion(titulo: "Resolución del Ejercicio 2")[
   #respuesta("a")[
-    // Escribir aquí la respuesta a)
+    - *Encapsulamiento y Protección de Invariantes:* Declarar `saldo` como `private` impide que agentes externos modifiquen el estado financiero sin control (por ejemplo, asignando saldos negativos o modificando fondos sin respaldo).
+    - *Garantía de los métodos `depositar` y `retirar`:* Aseguran que toda modificación del saldo respete las reglas de negocio (montos mayores a cero, suficiencia de fondos y consistencia interna).
   ]
+
   #respuesta("b")[
-    // Escribir aquí la respuesta b)
+    - *Alternativa `void`:* Acopla la clase del dominio con la consola. El código que invoca a `retirar()` desconoce si la operación tuvo éxito o no, impidiendo disparar acciones posteriores (como imprimir recibos, emitir alertas o registrar transacciones).
+    - *Alternativa `boolean` (Recomendada):* Retorna `true` o `false` informando el resultado a la capa superior. Permite tomar mejores decisiones de control de flujo (`if (cuenta.retirar(monto)) { ... }`) y mantiene la clase desacoplada y reutilizable en entornos gráficos o web.
   ]
+
   #respuesta("c")[
-    // Escribir aquí la respuesta c)
+    - *Retiro del saldo exacto ($"monto" = "saldo"$):* La operación es *exitosa*. Al cumplirse $"monto" <= "saldo"$, se realiza la extracción, el nuevo saldo queda en `$0.0` y el método retorna `true`.
+    - *Depósito de monto negativo ($"monto" < 0$):* La operación es *rechazada*. El método comprueba que el monto no cumple con la precondición ($"monto" > 0$), emite el mensaje de advertencia y retorna `false` sin alterar el saldo.
   ]
+
   #respuesta("d")[
-    // Escribir aquí la respuesta d)
+    - *Método a modificar:* El método *`retirar(double monto)`*.
+    - *Nueva validación:* Evaluar el tipo de cuenta para permitir saldo negativo hasta el límite fijado:
+      ```java
+      double saldoMinimo = this.tipoCuenta.equals("corriente") ? -50000.0 : 0.0;
+      if (this.saldo - monto < saldoMinimo) {
+          System.out.println("Error: Fondos insuficientes considerando el descubierto.");
+          return false;
+      }
+      this.saldo -= monto;
+      return true;
+      ```
   ]
 
   *Código Fuente (`CuentaBancaria.java`):*
-  ```java
-  // Inserte o importe aquí su solución en Java
-  // Tip: podés usar `#raw(read("../p2/CuentaBancaria.java"), lang: "java")` para cargarlo automáticamente
-  ```
+  #raw(read("../p2/CuentaBancaria.java"), lang: "java")
+
+  *Código Fuente Principal (`Tp1_02.java`):*
+  #raw(read("../p2/Tp1_02.java"), lang: "java")
 ]
 
 #line(length: 100%, stroke: 0.5pt + rgb("#e2e8f0"))

@@ -1,9 +1,9 @@
-package puntos.p1;
+package TP1.p1;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-class Punto1 {
+public class Punto1 {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -22,12 +22,13 @@ class Punto1 {
         cilindro.setRadio(radio);
         System.out.printf(
                 "Volumen: %.2f%nArea Total: %.2f",
-                cilindro.calcularVolumen(),
-                cilindro.calcularAreaTotal());
+                cilindro.getVolumen(),
+                cilindro.getSuperficie());
     }
 
     /**
-     * Lee y valida decimales desde teclado garantizando que sean valores positivos
+     * Lee y valida decimales desde teclado garantizando que sean valores
+     * positivos
      */
     public static double leerDecimalPositivo(Scanner entrada, String mensaje, double min) {
         double valor;
@@ -35,7 +36,10 @@ class Punto1 {
             System.out.println(mensaje);
             try {
                 valor = entrada.nextDouble();
-                return valor;
+                if (valor > min) {
+                    return valor;
+                }
+                System.out.printf("[Error] El valor debe ser mayor a %.2f.%n", min);
 
             } catch (InputMismatchException e) {
                 System.out.println("[Error] Debe ingresar un numero decimal valido.");

@@ -3,7 +3,9 @@ package p2;
 import java.util.Scanner;
 
 public class Tp1_02 {
-    public static void main(String[] args) {Scanner scanner = new Scanner(System.in);
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
 
         CuentaBancaria cuenta = new CuentaBancaria("Juan Osvaldo", 200000.0, "ahorro");
 
@@ -17,7 +19,7 @@ public class Tp1_02 {
             System.out.println("3. Retirar dinero");
             System.out.println("4. Salir");
             System.out.print("Seleccione una opción: ");
-            int opcion = Integer.parseInt(System.console().readLine());
+            int opcion = Integer.parseInt(scanner.nextLine());
             switch (opcion) {
                 case 1:
                     // Mostrar información de la cuenta
@@ -60,6 +62,6 @@ public class Tp1_02 {
         }
 
         scanner.close();
-        
+
     }
 }

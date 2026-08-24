@@ -36,23 +36,43 @@ Diseñar una clase llamada `Cilindro` que representa una figura geométrica trid
 
 #resolucion(titulo: "Resolución del Ejercicio 1")[
   #respuesta("a")[
-    // Escribir aquí la respuesta a)
+    - *Entradas:* El `radio` de la base y la `altura` del cilindro (ambos de tipo `double`).
+    - *Salidas:* El `Volumen` ($pi r^2 h$) y el `Área Superficial Total` ($2 pi r (r + h)$) formateados con dos decimales.
+    - *Información persistente en el objeto:* Los atributos privados `radio` y `altura`, que constituyen el *estado interno* del objeto `Cilindro` y se mantienen vivos en memoria mientras exista la instancia.
+    - *Información temporal:* Las variables locales auxiliares empleadas en el método `main` (instancia de `Scanner`, lecturas temporales por consola y variables auxiliares de cálculo).
   ]
+
   #respuesta("b")[
-    // Escribir aquí la respuesta b)
+    Si el usuario ingresa un valor menor o igual a cero ($<= 0$):
+    1. *En la capa de entrada (consola):* El método modular `leerDecimalPositivo` intercepta el valor, advierte que debe ser estrictamente positivo ($> 0$) y solicita el ingreso nuevamente sin interrumpir el programa.
+    2. *En el modelo del dominio (`Cilindro`):* Los métodos `setRadio()`, `setAltura()` y el constructor parametrizado evalúan los argumentos y lanzan una excepción `IllegalArgumentException` si son inválidos. Al ser los atributos privados (`private`), se garantiza que el objeto nunca entre en un estado inconsistente.
   ]
+
   #respuesta("c")[
-    // Escribir aquí la respuesta c)
+    1. *Valores positivos (ej. $r = 3.0$, $h = 5.0$):*
+       $ "Volumen" = pi times 3^2 times 5 = 45pi approx 141.37 $
+       $ "Área Total" = 2 times pi times 3 times (3 + 5) = 48pi approx 150.80 $
+       El objeto opera de manera óptima calculando y mostrando las magnitudes.
+    2. *Valores que intentan vulnerar la validación (ej. $r = -2.0$ o $h = 0$):*
+       El lector de consola rechaza el ingreso. Si se invoca directamente `setRadio(-2.0)`, se dispara `IllegalArgumentException` protegiendo la integridad del objeto.
+    3. *Radio y altura iguales (ej. $r = 4.0$, $h = 4.0$):*
+       $ "Volumen" = pi times 4^2 times 4 = 64pi approx 201.06 $
+       $ "Área Total" = 2 times pi times 4 times (4 + 4) = 64pi approx 201.06 $
+       Geométricamente, cuando $r = h$, el valor numérico del volumen y del área total coinciden ($201.06$), funcionando el algoritmo con total precisión.
   ]
+
   #respuesta("d")[
-    // Escribir aquí la respuesta d)
+    - *Encapsulamiento y Cohesión:* Se agrupan los datos y el comportamiento del cilindro dentro de la misma clase.
+    - *Reutilización:* Cualquier parte del sistema que disponga de una instancia de `Cilindro` puede consultar su volumen o área sin necesidad de reescribir fórmulas matemáticas.
+    - *Mantenibilidad:* Si se precisa modificar la precisión de las constantes o la fórmula, solo se edita la clase `Cilindro` sin propagar cambios al `main`.
+    - *Seguridad:* Los cálculos siempre utilizan el estado interno validado (`this.radio` y `this.altura`), previniendo errores de cálculo con variables desacopladas.
   ]
 
   *Código Fuente (`Cilindro.java`):*
-  ```java
-  // Inserte o importe aquí su solución en Java
-  // Tip: podés usar `#raw(read("../p1/Cilindro.java"), lang: "java")` para cargarlo automáticamente
-  ```
+  #raw(read("../p1/Cilindro.java"), lang: "java")
+
+  *Código Fuente Principal (`Punto1.java`):*
+  #raw(read("../p1/Punto1.java"), lang: "java")
 ]
 
 #line(length: 100%, stroke: 0.5pt + rgb("#e2e8f0"))

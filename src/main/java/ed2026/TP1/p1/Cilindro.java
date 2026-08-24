@@ -1,4 +1,4 @@
-package puntos.p1;
+package TP1.p1;
 
 public class Cilindro {
 
@@ -11,8 +11,8 @@ public class Cilindro {
     }
 
     public Cilindro(double radio, double altura) {
-        this.radio = radio;
-        this.altura = altura;
+        setRadio(radio);
+        setAltura(altura);
     }
 
     public double getAltura() {
@@ -24,24 +24,24 @@ public class Cilindro {
     }
 
     public void setAltura(double altura) {
-        if(altura<0){
-            throw new IllegalArgumentException("La altura debe ser un valor positivo"); 
+        if (altura < 0) {
+            throw new IllegalArgumentException("La altura debe ser un valor positivo");
         }
         this.altura = altura;
     }
 
     public void setRadio(double radio) {
-        if(radio<0){
+        if (radio < 0) {
             throw new IllegalArgumentException("El radio debe ser un valor positivo");
         }
         this.radio = radio;
     }
 
-    public double calcularVolumen() {
+    public double getVolumen() {
         return Math.PI * (this.radio * this.radio) * this.altura;
     }
 
-    public double calcularAreaTotal() {
+    public double getSuperficie() {
         return 2 * Math.PI * this.radio * (this.radio + this.altura);
     }
 

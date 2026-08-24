@@ -65,10 +65,7 @@ public class Reserva {
     }
 
     public boolean estaActiva(LocalDate fechaConsulta) {
-        if ((fechaConsulta.isAfter(fechaCheckIn) || fechaCheckIn.isEqual(fechaConsulta)) && fechaConsulta.isBefore(fechaCheckOut)) {
-            return true;
-        }
-        return false;
+        return (fechaConsulta.isAfter(fechaCheckIn) || fechaCheckIn.isEqual(fechaConsulta)) && fechaConsulta.isBefore(fechaCheckOut);
     }
 
     public int calcularDiasRestantesOTrasncurrido(LocalDate FechaConsulta) {

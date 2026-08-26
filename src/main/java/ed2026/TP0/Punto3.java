@@ -2,12 +2,14 @@ import java.util.Scanner;
 
 public class Punto3 {
   public static void main(String[] args) {
-    Scanner entrada = new Scanner(System.in);
-    int totalPreguntas = leerEnteroPositivo(entrada, "Ingrese la cantidad total de preguntas",
-      1, Integer.MAX_VALUE);
-    int correctas = leerEnteroPositivo(entrada,"Ingrese la cantidad de respuestas correctas",
-      0, totalPreguntas);
-        entrada.close();
+      int totalPreguntas;
+      int correctas;
+      try (Scanner entrada = new Scanner(System.in)) {
+          totalPreguntas = leerEnteroPositivo(entrada, "Ingrese la cantidad total de preguntas",
+                  1, Integer.MAX_VALUE);
+          correctas = leerEnteroPositivo(entrada,"Ingrese la cantidad de respuestas correctas",
+                  0, totalPreguntas);
+      }
 
     double porcentaje = calcularPorcentaje(correctas, totalPreguntas);
     String categoria = clasificarRendimiento(porcentaje);

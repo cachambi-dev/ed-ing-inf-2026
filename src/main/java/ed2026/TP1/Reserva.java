@@ -1,4 +1,3 @@
-package main.java.ed2026.TP1.p3;
 
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;

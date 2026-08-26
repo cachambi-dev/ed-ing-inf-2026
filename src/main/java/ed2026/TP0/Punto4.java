@@ -3,40 +3,37 @@ import java.util.Scanner;
 public class Punto4 {
 
   public static void main(String[] args) {
-    Scanner entrada = new Scanner(System.in);
-    boolean band = true;
-    double lado, radio, altura, base, area;
-    while (band) {
-      int opcion = ingresarOpcion(entrada);
-      switch (opcion) {
-        case 1:
-          lado = leerEntradaValor(entrada, "Ingrese lado del cuadrado", 0.0);
-          area = calcularAreaCuadrado(lado);
-          mostrarResusltado("Cuadrado", area);
-          break;
-        case 2:
-          base = leerEntradaValor(entrada, "Ingrese base del triangulo", 0.0);
-          altura = leerEntradaValor(entrada, "Ingrese altura del triangulo", 0.0);
-          area = calcularAreaTriangulo(base, altura);
-          mostrarResusltado("Triangulo", area);
-          break;
-        case 3:
-          radio = leerEntradaValor(entrada, "Ingrese radio del circulo", 0.0);
-          area = calcularAreaCirculo(radio);
-          mostrarResusltado("Circulo", area);
-          break;
-        case 4:
-          band = false;
-          System.out.println("Fin del programa");
-          break;
-
-        default:
-          System.out.println("Ingrese una opcion valida del menu");
-          break;
-      }
-
-    }
-    entrada.close();
+      try (Scanner entrada = new Scanner(System.in)) {
+          boolean band = true;
+          double lado, radio, altura, base, area;
+          while (band) {
+              int opcion = ingresarOpcion(entrada);
+              switch (opcion) {
+                  case 1 -> {
+                      lado = leerEntradaValor(entrada, "Ingrese lado del cuadrado", 0.0);
+                      area = calcularAreaCuadrado(lado);
+                      mostrarResusltado("Cuadrado", area);
+                  }
+                  case 2 -> {
+                      base = leerEntradaValor(entrada, "Ingrese base del triangulo", 0.0);
+                      altura = leerEntradaValor(entrada, "Ingrese altura del triangulo", 0.0);
+                      area = calcularAreaTriangulo(base, altura);
+                      mostrarResusltado("Triangulo", area);
+                  }
+                  case 3 -> {
+                      radio = leerEntradaValor(entrada, "Ingrese radio del circulo", 0.0);
+                      area = calcularAreaCirculo(radio);
+                      mostrarResusltado("Circulo", area);
+                  }
+                  case 4 -> {
+                      band = false;
+                      System.out.println("Fin del programa");
+                  }
+                      
+                  default -> System.out.println("Ingrese una opcion valida del menu");
+              }
+              
+          } }
   }
 
   /**

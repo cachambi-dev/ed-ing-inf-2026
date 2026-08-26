@@ -1,29 +1,28 @@
-package TP2.p2;
+package TP2;
 
 import java.util.Scanner;
 
 public class Tp2_02 {
     static void main() {
-        Scanner entrada = new Scanner(System.in);
-        int cantidadVuelos = ingresarValorEntero(entrada, "Ingrese cantidad de vuelos", 0, Integer.MAX_VALUE);
-        
-        int[] arregloNumeroVuelo = new int[cantidadVuelos];
-        String[] arregloEstadoVuelo = new String[cantidadVuelos];
-        cargarArreglo(arregloEstadoVuelo, arregloNumeroVuelo);
-        mostrarElementos2arreglos(arregloEstadoVuelo, arregloNumeroVuelo);
-
-        int vuelo = ingresarValorEntero(entrada, "Ingrese numero de vuelo a buscar", 0, Integer.MAX_VALUE);
-        buscarNumeroVuelo(arregloNumeroVuelo, arregloEstadoVuelo, vuelo);
-
-        System.out.println("\nMostrando cantidad de vuelos por estado");
-        String estado = seleccionarEstado(entrada);
-        mostrarCantidadVueloPorEstado(arregloEstadoVuelo, estado);
-
-        estado = seleccionarEstado(entrada);
-        int[] arregloVuelosPorEstado = obtenerArregloNumeroVueloPorEstado(arregloEstadoVuelo, arregloNumeroVuelo, estado);
-        mostrarArregloNumeroVuelo(arregloVuelosPorEstado);
-
-        entrada.close();
+        try (Scanner entrada = new Scanner(System.in)) {
+            int cantidadVuelos = ingresarValorEntero(entrada, "Ingrese cantidad de vuelos", 0, Integer.MAX_VALUE);
+            
+            int[] arregloNumeroVuelo = new int[cantidadVuelos];
+            String[] arregloEstadoVuelo = new String[cantidadVuelos];
+            cargarArreglo(arregloEstadoVuelo, arregloNumeroVuelo);
+            mostrarElementos2arreglos(arregloEstadoVuelo, arregloNumeroVuelo);
+            
+            int vuelo = ingresarValorEntero(entrada, "Ingrese numero de vuelo a buscar", 0, Integer.MAX_VALUE);
+            buscarNumeroVuelo(arregloNumeroVuelo, arregloEstadoVuelo, vuelo);
+            
+            System.out.println("\nMostrando cantidad de vuelos por estado");
+            String estado = seleccionarEstado(entrada);
+            mostrarCantidadVueloPorEstado(arregloEstadoVuelo, estado);
+            
+            estado = seleccionarEstado(entrada);
+            int[] arregloVuelosPorEstado = obtenerArregloNumeroVueloPorEstado(arregloEstadoVuelo, arregloNumeroVuelo, estado);
+            mostrarArregloNumeroVuelo(arregloVuelosPorEstado);
+        }
 
     }
 

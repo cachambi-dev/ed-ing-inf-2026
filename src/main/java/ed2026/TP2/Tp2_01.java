@@ -1,14 +1,12 @@
-package TP2.p1;
+package TP2;
 
 import java.util.Random;
-import java.util.Scanner;
 
 public class Tp2_01 {
 
     public static void main(String[] args) {
-        Scanner entrada = new Scanner(System.in);
-        int cantidad = ingresarValorEntero(entrada, "Ingrese valor", 0);
-        entrada.close();
+          int cantidad = Helper.nextInteger("Ingrese valor", 0);
+        
         int arregloInicial[] = new int[cantidad];
         cargarArreglo(arregloInicial);
         System.out.println("Mostrar elementos del arreglo cargado");
@@ -24,24 +22,7 @@ public class Tp2_01 {
 
     }
 
-    /***
-     * Metodo que valida el ingreso de valores enteros positivos
-     */
-    public static int ingresarValorEntero(Scanner ent, String mensaje, int min) {
-        int valor;
-        while (true) {
-            System.out.println(mensaje);
-            if (ent.hasNextInt()) {
-                valor = ent.nextInt();
-                if (valor > min) {
-                    return valor;
-                }
-                System.out.println("[Error] Valor invalido, debe ingresar valor positivo");
-            } else {
-                System.out.println("[Error] Valor invalido, debe ser un numero entero");
-            }
-        }
-    }
+   
 
     /***
      * Metodo que genera un numero aleatorio en el rango [min,max]

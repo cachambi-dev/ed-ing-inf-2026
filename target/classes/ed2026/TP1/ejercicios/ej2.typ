@@ -62,10 +62,10 @@ Crear una clase llamada `CuentaBancaria` que modele una cuenta bancaria.
   ]
 
   *Código Fuente (`CuentaBancaria.java`):*
-  #raw(read("../p2/CuentaBancaria.java"), lang: "java")
+  #raw(read("../CuentaBancaria.java"), lang: "java")
 
   *Código Fuente Principal (`Tp1_02.java`):*
-  #raw(read("../p2/Tp1_02.java"), lang: "java")
+  #raw(read("../Tp1_02.java"), lang: "java")
 ]
 
 #line(length: 100%, stroke: 0.5pt + rgb("#e2e8f0"))

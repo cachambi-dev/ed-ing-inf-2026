@@ -39,9 +39,7 @@ Desarrollar un programa que solicite al usuario un valor entero $N$. Generar $N$
   ]
 
   *Código Fuente:*
-  ```java
-  // Inserte o importe aquí su solución en Java
-  ```
+  #raw(read("../Tp2_01.java"), lang: "java")
 ]
 
 #line(length: 100%, stroke: 0.5pt + rgb("#e2e8f0"))

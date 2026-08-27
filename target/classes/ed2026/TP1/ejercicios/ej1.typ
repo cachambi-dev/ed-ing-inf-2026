@@ -69,10 +69,10 @@ Diseñar una clase llamada `Cilindro` que representa una figura geométrica trid
   ]
 
   *Código Fuente (`Cilindro.java`):*
-  #raw(read("../p1/Cilindro.java"), lang: "java")
+  #raw(read("../Cilindro.java"), lang: "java")
 
   *Código Fuente Principal (`Punto1.java`):*
-  #raw(read("../p1/Punto1.java"), lang: "java")
+  #raw(read("../Punto1.java"), lang: "java")
 ]
 
 #line(length: 100%, stroke: 0.5pt + rgb("#e2e8f0"))

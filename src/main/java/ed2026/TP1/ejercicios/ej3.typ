@@ -64,10 +64,10 @@ Desarrollar un programa que simule la gestión de una reserva de hotel con fecha
   ]
 
   *Código Fuente (`Reserva.java`):*
-  #raw(read("../p3/Reserva.java"), lang: "java")
+  #raw(read("../Reserva.java"), lang: "java")
 
   *Código Fuente Principal (`Tp1_03.java`):*
-  #raw(read("../p3/Tp1_03.java"), lang: "java")
+  #raw(read("../Tp1_03.java"), lang: "java")
 ]
 
 #line(length: 100%, stroke: 0.5pt + rgb("#e2e8f0"))

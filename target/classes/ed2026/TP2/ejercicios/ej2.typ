@@ -40,9 +40,7 @@ Crear un programa para la gestión de vuelos en un aeródromo. Solicitar la cant
   ]
 
   *Código Fuente:*
-  ```java
-  // Inserte o importe aquí su solución en Java
-  ```
+  #raw(read("../Tp2_02.java"), lang: "java")
 ]
 
 #line(length: 100%, stroke: 0.5pt + rgb("#e2e8f0"))

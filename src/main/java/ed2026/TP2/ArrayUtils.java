@@ -2,6 +2,9 @@ package TP2;
 
 import java.util.ArrayList;
 
+/**
+ * Clase que contiene metodos utilitarios para trabajar con arreglos de caracteres
+ */
 public class ArrayUtils {
     
     /**
@@ -26,9 +29,10 @@ public class ArrayUtils {
     /**
      * Metodo que muestra los elementos de un arreglo de caracteres
      * @param arrayListCharacter 
+     * @param message mensaje a mostrar antes de los elementos
      */
-    public static void showArrayListCharacter(ArrayList<Character> arrayListCharacter) {
-        System.out.println("Elementos del arreglo de caracteres:");
+    public static void showArrayListCharacter(ArrayList<Character> arrayListCharacter, String message) {
+        System.out.println(message);
         for (Character character : arrayListCharacter) {
             System.out.print("["+ character + "] ");
         }

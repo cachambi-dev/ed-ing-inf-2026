@@ -1,14 +1,96 @@
 package TP2;
 
 import java.util.ArrayList;
+import java.util.concurrent.ThreadLocalRandom;
+
 
 public class Tp2_03 {
     public static void main(String[] args) {
 
         ArrayList<Character> characters = new ArrayList<>();
         ArrayUtils.loadArrayListCharacterFromConsole(characters, "Ingrese un caracter");
-        ArrayUtils.showArrayListCharacter(characters);
+        ArrayUtils.showArrayListCharacter(characters, "Los caracteres ingresados son: ");
         getCharactersRepeated(characters);
+        System.out.println("La posicion de la primera vocal es: " + getPositionalFirstVowel(characters));
+        System.out.println("La posicion de la ultima consonante es: " + getPositionalLastConsonant(characters));
+        ArrayList<Character> charactersDigitsNumbers = getCharactersDigitsNumbers(characters);
+        ArrayUtils.showArrayListCharacter(charactersDigitsNumbers, "Los caracteres que son digitos son: ");
+        swapFirstUppercaseAndLastSymbol(characters);
+        ArrayUtils.showArrayListCharacter(characters, "\nEl arreglo modificado es: ");
+    }
+
+    /**
+     * Metodo que intercambia la primera letra mayuscula con el ultimo simbolo de un arreglo de caracteres
+     * @param characters arreglo de caracteres
+     */
+    public static void swapFirstUppercaseAndLastSymbol(ArrayList<Character> characters) {
+        if (characters.isEmpty()) {
+            System.out.println("\nThe array is empty; the swap cannot be performed.");
+            return;
+        }
+
+        int uppercasePosition = findFirstUppercasePosition(characters);
+        int symbolPosition = findLastSymbolPosition(characters);
+        int randomIndex = randomPosition(characters.size());
+
+        if (uppercasePosition == -1) {
+            uppercasePosition = randomIndex;
+        }
+        if (symbolPosition == -1) {
+            symbolPosition = randomIndex;
+        }
+
+        Character temporary = characters.get(uppercasePosition);
+        characters.set(uppercasePosition, characters.get(symbolPosition));
+        characters.set(symbolPosition, temporary);
+    }
+
+    /**
+     * Metodo que encuentra la posicion de la primera letra mayuscula en un arreglo de caracteres
+     * @param characters arreglo de caracteres
+     * @return posicion de la primera letra mayuscula, o -1 si no se encuentra
+     */
+    public static int findFirstUppercasePosition(ArrayList<Character> characters) {
+        for (int idx = 0; idx < characters.size(); idx++) {
+            if (Character.isUpperCase(characters.get(idx))) {
+                return idx;
+            }
+        }
+        return -1;
+    }
+
+    /**
+     * Metodo que encuentra la posicion del ultimo simbolo en un arreglo de caracteres
+     * @param characters arreglo de caracteres
+     * @return posicion del ultimo simbolo, o -1 si no se encuentra
+     */
+    public static int findLastSymbolPosition(ArrayList<Character> characters) {
+        for (int idx = characters.size() - 1; idx >= 0; idx--) {
+            if (isSymbol(characters.get(idx))) {
+                return idx;
+            }
+        }
+        return -1;
+    }
+
+    /**
+     * Metodo que valida si un caracter es un simbolo
+     * 
+     * @param character caracter a validar
+     * @return true si el caracter es un simbolo, false si no lo es
+     */
+    public static boolean isSymbol(char character) {
+        return !Character.isLetter(character) && !Character.isDigit(character);
+    }
+
+    /**
+     * Metodo que obtiene una posicion aleatoria dentro del rango del arreglo
+     * 
+     * @param length tamaño del arreglo
+     * @return posicion aleatoria dentro del rango del arreglo
+     */
+    public static int randomPosition(int length) {
+        return ThreadLocalRandom.current().nextInt(length);
     }
 
     /**
@@ -45,11 +127,8 @@ public class Tp2_03 {
         if (arrayCharacterRepeated.isEmpty()) {
             return false;
         }
-        char lowercaseArray, lowercase = Character.toLowerCase(character);
         for (int idx = 0; idx < arrayCharacterRepeated.size(); idx++) {
-            lowercaseArray = Character.toLowerCase(arrayCharacterRepeated.get(idx));
-
-            if (lowercaseArray == lowercase) {
+            if (areCharactersIqual(arrayCharacterRepeated.get(idx), character)) {
                 return true;
             }
         }
@@ -66,14 +145,103 @@ public class Tp2_03 {
      */
     public static int getQuantiyCharacterRepeated(ArrayList<Character> arrayCharacter, char character) {
         int quantityCharacter = 0;
-        char lowercaseArray, lowercase = Character.toLowerCase(character);
         for (int idx = 0; idx < arrayCharacter.size(); idx++) {
-            lowercaseArray = Character.toLowerCase(arrayCharacter.get(idx));
-            if (lowercaseArray == lowercase) {
+
+            if (areCharactersIqual(arrayCharacter.get(idx), character)) {
                 quantityCharacter++;
             }
         }
         return quantityCharacter;
+    }
+
+    /**
+     * Metodo que valida si dos caracteres son iguales
+     * 
+     * @param character1 primer caracter
+     * @param character2 segundo caracter
+     * @return true si los caracteres son iguales, false si no lo son
+     */
+    public static boolean areCharactersIqual(char character1, char character2) {
+        return Character.toLowerCase(character1) == Character.toLowerCase(character2);
+    }
+
+    /**
+     * Metodo que valida si un caracter es una vocal
+     * 
+     * @param character caracter a validar
+     * @return true si el caracter es una vocal, false si no lo es
+     */
+    public static boolean isVowel(char character) {
+        return "aeiou".indexOf(Character.toLowerCase(character)) != -1;
+    }
+
+    /**
+     * Metodo que valida si un caracter es una consonante
+     * 
+     * @param character caracter a validar
+     * @return true si el caracter es una consonante, false si no lo es
+     */
+    public static boolean isConsonant(char character) {
+        return Character.isLetter(character) && !isVowel(character);
+    }
+
+    /**
+     * Metodo que obtiene la posicion de la primera vocal de un arreglo de caracteres
+     * 
+     * @param arrayCharacter arreglo de caracteres
+     * @return la posicion de la primera vocal del arreglo, -1 si no hay vocales
+     */
+    public static int getPositionalFirstVowel(ArrayList<Character> arrayCharacter) {
+        for (int idx = 0; idx < arrayCharacter.size(); idx++) {
+            if (isVowel(arrayCharacter.get(idx))) {
+                return idx;
+            }
+        }
+        return -1;
+    }
+
+    /**
+     * Metodo que obtiene la posicion de la ultima consonante de un arreglo de
+     * caracteres
+     * 
+     * @param arrayCharacter arreglo de caracteres
+     * @return la posicion de la ultima consonante del arreglo, -1 si no hay
+     *         consonantes
+     */
+    public static int getPositionalLastConsonant(ArrayList<Character> arrayCharacter) {
+        for (int idx = arrayCharacter.size() - 1; idx >= 0; idx--) {
+            if (isConsonant(arrayCharacter.get(idx))) {
+                return idx;
+            }
+        }
+        return -1;
+    }
+
+    /**
+     * Metodo que obtiene los caracteres que son digitos de un arreglo de
+     * caracteres
+     * 
+     * @param arrayCharacter arreglo de caracteres
+     * @return un arreglo de caracteres que contiene los caracteres que son digitos
+     */
+    public static ArrayList<Character> getCharactersDigitsNumbers(ArrayList<Character> arrayCharacter) {
+        ArrayList<Character> charactersDigitsNumbers = new ArrayList<>();
+        for (int idx = 0; idx < arrayCharacter.size(); idx++) {
+            if (Character.isDigit(arrayCharacter.get(idx))) {
+                charactersDigitsNumbers.add(arrayCharacter.get(idx));
+            }
+        }
+        return charactersDigitsNumbers;
+    }
+
+    /**
+     * Metodo que valida si un caracter es un digito
+     * 
+     * @param character caracter a validar
+     * @return true si el caracter es un digito, false si no lo es
+     */
+    public static boolean charactersDigitsNumbers(char character){
+        return "0123456789".indexOf(character)!=-1;
     }
 
 }

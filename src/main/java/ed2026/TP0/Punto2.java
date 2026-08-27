@@ -1,3 +1,4 @@
+package ed2026.TP0;
 
 import java.util.Random;
 import java.util.Scanner;

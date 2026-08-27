@@ -1,4 +1,4 @@
-
+package ed2026.TP0;
 import java.util.Scanner;
 
 public class Punto1 {

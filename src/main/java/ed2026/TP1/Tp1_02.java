@@ -1,3 +1,5 @@
+package ed2026.TP1;
+
 import java.util.Scanner;
 
 public class Tp1_02 {
@@ -18,7 +20,7 @@ public class Tp1_02 {
                 System.out.print("Seleccione una opción: ");
                 int opcion = Integer.parseInt(scanner.nextLine());
                 switch (opcion) {
-                    case 1 -> {
+                    case 1: {
                         // Mostrar información de la cuenta
                         System.out.println("Titular: " + cuenta.getTitular());
                         System.out.println("Saldo: " + cuenta.getSaldo());
@@ -26,7 +28,7 @@ public class Tp1_02 {
                         // cuenta.mostrarInformacion();
                         // System.out.println("\nInformación: " + cuenta.toString() + "\n");
                     }
-                    case 2 -> {
+                    case 2: {
                         // Depositar dinero
                         System.out.print("Ingrese el monto a depositar: ");
                         double montoDeposito = Double.parseDouble(scanner.nextLine());
@@ -37,7 +39,7 @@ public class Tp1_02 {
                             System.out.println("Depósito realizado. Nuevo saldo: " + cuenta.getSaldo());
                         }
                     }
-                    case 3 -> {
+                    case 3: {
                         // Retirar dinero
                         System.out.print("Ingrese el monto a retirar: ");
                         double montoRetiro = Double.parseDouble(scanner.nextLine());
@@ -50,8 +52,12 @@ public class Tp1_02 {
                             System.out.println("Retiro realizado. Nuevo saldo: " + cuenta.getSaldo());
                         }
                     }
-                    case 4 -> salirDelMenu = true;
-                    default -> System.out.println("Opción inválida. Por favor, seleccione una opción válida.");
+                    case 4: {
+                        salirDelMenu = true;
+                    }
+                    default: {
+                        System.out.println("Opción inválida. Por favor, seleccione una opción válida.");
+                    }
                 }
             }
         }

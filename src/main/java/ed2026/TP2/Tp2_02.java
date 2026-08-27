@@ -1,4 +1,4 @@
-package TP2;
+package ed2026.TP2;
 
 import java.util.Scanner;
 

@@ -2,6 +2,8 @@ package ed2026.TP2;
 
 import java.util.Random;
 
+import ed2026.Helper.Helper;
+
 public class Tp2_01 {
 
     public static void main(String[] args) {

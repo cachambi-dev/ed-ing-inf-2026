@@ -1,5 +1,4 @@
-package ed2026.TP2;
-
+package ed2026.Helper;
 import java.util.ArrayList;
 
 /**
@@ -50,5 +49,31 @@ public class ArrayUtils {
             System.out.print(message+ arrayListCharacter.get(i) + message2 + arrayListInteger.get(i) );
         }
     }
+
+    /**
+     * Metodo que muestra los elementos de un arreglo de enteros
+     * @param arrayListInteger arreglo de enteros
+     * @param message mensaje a mostrar antes de los elementos
+     */
+    public static void showArrayListInteger(ArrayList<Integer> arrayListInteger, String message) {
+        System.out.println(message);
+        for (Integer integer : arrayListInteger) {
+            System.out.print("["+ integer + "] ");
+        }
+    }
+
+    /**
+     * Metodo que muestra los elementos de un arreglo de enteros
+     * @param array arreglo de enteros
+     * @param message mensaje a mostrar antes de los elementos
+     */
+    public static void showArrayOneDimensionInt(int[] array, String message) {
+        System.out.println(message);
+        for (int i = 0; i < array.length; i++) {
+            System.out.print("["+ array[i] + "] ");
+        }
+    }
+
+
 
 }

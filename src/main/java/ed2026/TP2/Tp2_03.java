@@ -3,6 +3,8 @@ package ed2026.TP2;
 import java.util.ArrayList;
 import java.util.concurrent.ThreadLocalRandom;
 
+import ed2026.Helper.ArrayUtils;
+
 
 public class Tp2_03 {
     public static void main(String[] args) {

@@ -1,5 +1,4 @@
-package ed2026.TP2;
-
+package ed2026.Helper;
 import java.util.Scanner;
 
 /**

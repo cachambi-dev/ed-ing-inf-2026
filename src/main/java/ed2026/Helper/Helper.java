@@ -39,6 +39,7 @@ public class Helper {
             if (scanner.hasNextInt()) {
                 valor = scanner.nextInt();
                 if (valor > min) {
+                    scanner.nextLine();
                     return valor;
                 }
                 System.out.println("[Error] Valor invalido, debe ingresar valor positivo");
@@ -64,6 +65,83 @@ public class Helper {
 
     public static Integer randomInteger(int min, int max){
         return (int) (Math.random() * (max - min + 1) + min);
+    }
+
+    public static Integer nextInteger(Scanner scanner, String mensaje){
+        return nextInteger(scanner, mensaje, 0);
+    }
+
+     /**
+     * Método que solicita al usuario un número entero y lo devuelve.
+     * 
+     * @param scanner      objeto de la clase Scanner
+     * @param inputMessage mensaje que se muestra al usuario para solicitar el caracter
+     * @param errorMessage mensaje que se muestra al usuario en caso de error
+     * @return el número entero ingresado por el usuario
+     */
+    public static Integer nextInteger(Scanner scanner, String inputMessage, String errorMessage) {
+        Integer integerValue = 0;
+        while (true) {
+            try {
+                System.out.print(inputMessage);
+                integerValue = Integer.parseInt(scanner.nextLine());
+                return integerValue;
+            } catch (Exception exception) {
+                System.out.println(errorMessage);
+            }
+        }
+    }
+
+    public static Integer nextInteger(String inputMessage, String errorMessage) {
+        return nextInteger(Helper.scanner, inputMessage, errorMessage);
+    }
+
+    /**
+     * Método que solicita al usuario un número entero dentro de un rango y lo devuelve.
+     * 
+     * @param scanner      objeto de la clase Scanner
+     * @param inputMessage mensaje que se muestra al usuario para solicitar el número
+     * @param minValue     valor mínimo del rango
+     * @param maxValue     valor máximo del rango
+     * @return el número entero ingresado por el usuario
+     */
+     public static Integer nextInteger(Scanner scanner, String inputMessage,int minValue, int maxValue) {
+        int valor;
+        while (true) {
+            System.out.println(inputMessage);
+            if (scanner.hasNextInt()) {
+                valor = scanner.nextInt();
+                if (valor >= minValue && valor <= maxValue) {
+                    return valor;
+                }
+                System.out.println("[Error] Valor invalido, debe ingresar un numero entre " + minValue + " y " + maxValue);
+            } else {
+                System.out.println("[Error] Valor invalido, debe ser un numero entero");
+            }
+        }
+    }
+
+    /**
+     * Método que solicita al usuario un número entero dentro de un rango y lo devuelve.
+     * 
+     * @param inputMessage mensaje que se muestra al usuario para solicitar el número
+     * @param minValue     valor mínimo del rango
+     * @param maxValue     valor máximo del rango
+     * @return el número entero ingresado por el usuario
+     */
+    public static Integer nextInteger(String inputMessage,int minValue, int maxValue ) {
+        return nextInteger(Helper.scanner, inputMessage, "Error: Ingrese un número entero válido.");
+    }
+
+    /**
+     * Método que solicita al usuario un String y lo devuelve.
+     * 
+     * @param mensaje mensaje que se muestra al usuario para solicitar el String
+     * @return el String ingresado por el usuario
+     */
+    public static String nextString(String mensaje) {
+        System.out.println(mensaje);
+        return scanner.nextLine();
     }
 
 }

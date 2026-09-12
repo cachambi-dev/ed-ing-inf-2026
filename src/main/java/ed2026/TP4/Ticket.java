@@ -1,5 +1,8 @@
 package ed2026.TP4;
 
+/**
+ * Clase que representa un ticket con un ID, un departamento y un nivel de urgencia
+ */
 public class Ticket {
     private String idTicket;
     private String departament;

@@ -1,5 +1,6 @@
 package ed2026.TP4;
 
+import ed2026.Helper.ArrayUtils;
 import ed2026.Helper.Helper;
 import ed2026.Helper.QueueUtils;
 
@@ -24,9 +25,9 @@ public class TP4_04 {
         QueueUtils.displayQueue(filteredQueue);
         System.out.println("Promedio del nivel de urgencia: " + String.format("%.2f", getAverageUrgencyLevel(queueTickets)));
         
+        System.out.println("Primer ticket con nivel de urgencia 5: " + getFirstTicketFiveUrgencyLevel(queueTickets));
 
-
-       
+        ArrayUtils.showArrayOneDimensionGeneric(getIdTicketUrgencyLevel(queueTickets), "ID de los tickets con nivel de urgencia mayor o igual a 4:");
     }
 
     /**
@@ -72,5 +73,40 @@ public class TP4_04 {
 
         return  totalUrgencyLevel /  (double) queueTickets.size();
     }
+
+    /**
+     * Metodo que devuelve el primer ticket con nivel de urgencia 5
+     * @param queueTickets Cola de tickets
+     * @return Primer ticket con nivel de urgencia 5
+     */
+    public static Ticket getFirstTicketFiveUrgencyLevel(Queue<Ticket> queueTickets){
+        Ticket ticketFirstFiveUrgencyLevel = new Ticket();
+        for (Ticket ticket : queueTickets) {
+            if(ticket.getLevelUrgency() == 5){
+                ticketFirstFiveUrgencyLevel = ticket;
+                break;
+            }
+        }
+        return ticketFirstFiveUrgencyLevel;
+    } 
+
+    /**
+     * Metodo que devuelve un arreglo con los ID de los tickets con nivel de urgencia mayor o igual a 4
+     * @param queueTickets Cola de tickets
+     * @return Arreglo con los ID de los tickets con nivel de urgencia mayor o igual a 4
+     */
+    public static String[] getIdTicketUrgencyLevel(Queue<Ticket> queueTickets){
+        String[] arrIdTicketUrgencyLevel = new String[queueTickets.size()];
+        int i = 0;
+        for (Ticket ticket : queueTickets) {
+            if (ticket.getLevelUrgency() >= 4) {
+                arrIdTicketUrgencyLevel[i] = ticket.getIdTicket();
+                i++;
+            }
+        }
+        return arrIdTicketUrgencyLevel;
+    }
+
+
 
 }

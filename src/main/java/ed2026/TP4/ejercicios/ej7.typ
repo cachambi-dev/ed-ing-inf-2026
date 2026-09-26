@@ -70,13 +70,13 @@ A continuación, se presentan dos soluciones propuestas por distintos estudiante
 
 #resolucion(titulo: "Resolución del Ejercicio 7")[
   #respuesta("1")[
-    // Escribir aquí la respuesta 1)
+    La Solución B respeta mejor la consigna porque conserva el orden original de la cola y, además, restaura la estructura al final. La Solución A también restaura los elementos, pero usa un arreglo auxiliar para guardar los valores y luego los vuelve a encolar; eso es válido, pero es menos natural y más costoso en memoria.
   ]
   #respuesta("2")[
-    // Escribir aquí la respuesta 2)
+    En la Solución B, cada `poll()` avanza `head`, y cada `offer()` mueve `tail`. El recorrido de la cola original vacía la estructura y luego se usa la cola auxiliar para mantener los elementos temporales; cuando se reencolan, `head` y `tail` vuelven a posicionarse para reconstruir la cola original en el mismo orden.
   ]
   #respuesta("3")[
-    // Escribir aquí la respuesta 3)
+    La Solución A tiene la ventaja de ser más explícita con un arreglo, pero usa más memoria porque debe crear un arreglo del tamaño original. La Solución B usa una cola auxiliar y resulta más clara para la lógica de FIFO, aunque también consume memoria auxiliar. En términos generales, ambas cumplen la consigna si restauran la cola al final.
   ]
 ]
 

@@ -37,13 +37,13 @@ Para cada una de estas colas, se debe luego realizar lo siguiente:
 
 #resolucion(titulo: "Resolución del Ejercicio 3")[
   #respuesta("a")[
-    // Escribir aquí la respuesta a)
+    La cola original puede quedar vacía si se la procesa con un `poll()` para clasificar los elementos. Sin embargo, si el enunciado exige que la cola original no se modifique, entonces se debe usar una cola auxiliar o recorrerla sin destruirla. En la práctica, para respetar la consigna, se restauran los elementos y la cola original queda intacta.
   ]
   #respuesta("b")[
-    // Escribir aquí la respuesta b)
+    Si no hay clientes con nombres cortos, la cola correspondiente queda vacía. Para evitar una excepción al buscar el nombre más largo, el algoritmo debe verificar antes de usar `peek()` o recorrer la cola: si la cola está vacía, se devuelve una cadena vacía o un mensaje como “No hay elementos”.
   ]
   #respuesta("c")[
-    // Escribir aquí la respuesta c)
+    Las tres colas se obtienen por clasificación y luego se unen en el orden pedido: primero cortos, luego medianos y finalmente largos. No hace falta usar colas auxiliares para la unión final si se itera sobre cada una y se encola en la nueva cola resultante, siempre respetando el orden especificado.
   ]
 
   *Código Fuente (`TP4_03.java`):*

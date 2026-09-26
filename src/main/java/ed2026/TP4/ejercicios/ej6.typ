@@ -30,21 +30,38 @@ El programa debe procesar la cola de turnos, y devolver una nueva cola que conte
 
 #resolucion(titulo: "Resolución del Ejercicio 6")[
   #respuesta("a")[
-    // Escribir aquí la respuesta a)
+    La búsqueda por DNI puede detenerse cuando se encuentra el turno buscado. En una cola FIFO, no hace falta recorrer toda la estructura si ya se encontró el elemento buscado. Si se quiere evitar que se recorra demasiado, se guarda una bandera o se rompe el bucle cuando se cumple la condición.
   ]
   #respuesta("b")[
-    // Escribir aquí la respuesta b)
+    Si el DNI no existe, el programa debe devolver `false` o un valor equivalente y no lanzar una excepción. La validación se hace antes de acceder al atributo, verificando si se encontró el turno o si la cola terminó de recorrerse sin coincidencias.
   ]
   #respuesta("c")[
-    // Escribir aquí la respuesta c)
+    Si se desencola la cola original para crear la nueva cola de pendientes, se destruye la estructura original. La solución correcta es usar una cola auxiliar para guardar los elementos mientras se hace la clasificación y, al final, devolverlos a la cola original.
   ]
   #respuesta("d")[
-    // Escribir aquí la respuesta d)
+    No, si el turno que se quiere cambiar está detrás de otros elementos, no se puede modificar “el primero que tenga obra social PAMI” sin recorrer la cola. Para cambiar un elemento en una cola, en la práctica hay que desencolarlo y reencolarlo manteniendo el orden o trabajar con una cola auxiliar para preservar la secuencia.
   ]
 
   *Código Fuente:*
   ```java
-  // Inserte o importe aquí su solución en Java
+  public static boolean fueAtendidoPorDni(Queue<Turno> cola, String dni) {
+      Queue<Turno> aux = new Queue<>(cola.size());
+      boolean encontrado = false;
+
+      while (!cola.isEmpty()) {
+          Turno turno = cola.poll();
+          if (turno.getDniCliente().equals(dni)) {
+              encontrado = turno.isFueAtendido();
+          }
+          aux.offer(turno);
+      }
+
+      while (!aux.isEmpty()) {
+          cola.offer(aux.poll());
+      }
+
+      return encontrado;
+  }
   ```
 ]
 

@@ -43,21 +43,38 @@ El programa debe permitir:
 
 #resolucion(titulo: "Resolución del Ejercicio 5")[
   #respuesta("a")[
-    // Escribir aquí la respuesta a)
+    La cola es la estructura ideal porque modela un flujo de llegadas en orden de atención: FIFO. En logística, los envíos se atienden en orden cronológico de ingreso, por lo que una cola refleja mejor la realidad que una pila, que entrega el último elemento primero.
   ]
   #respuesta("b")[
-    // Escribir aquí la respuesta b)
+    Si los envíos a `"Nacional"` tienen pesos `[10.5, 20.0, 15.2]`, el peso total es `45.7`. El envío de mayor peso es aquel de `20.0` kg, que es el segundo de la cola en orden de llegada.
   ]
   #respuesta("c")[
-    // Escribir aquí la respuesta c)
+    Si se hace `poll()` en un bucle `while (!cola.isEmpty())`, la cola original queda vacía y se destruye. Para que la cola original permanezca intacta, se debe guardar cada elemento en una cola auxiliar y luego restaurar la original al final del proceso.
   ]
   #respuesta("d")[
-    // Escribir aquí la respuesta d)
+    Ese código encuentra el mayor peso, pero destruye la cola original porque hace `poll()` en cada iteración. Faltaría restaurar la cola al final con una cola auxiliar, para que la colección permanezca sin modificaciones.
   ]
 
   *Código Fuente:*
   ```java
-  // Inserte o importe aquí su solución en Java
+  public static Envio getMayorPeso(Queue<Envio> cola) {
+      Queue<Envio> aux = new Queue<>(cola.size());
+      Envio mayor = null;
+
+      while (!cola.isEmpty()) {
+          Envio envio = cola.poll();
+          if (mayor == null || envio.getPeso() > mayor.getPeso()) {
+              mayor = envio;
+          }
+          aux.offer(envio);
+      }
+
+      while (!aux.isEmpty()) {
+          cola.offer(aux.poll());
+      }
+
+      return mayor;
+  }
   ```
 ]
 

@@ -29,13 +29,13 @@ Procesar la segunda cola cuando esté disponible. Contar cuántos documentos tie
 
 #resolucion(titulo: "Resolución del Ejercicio 2")[
   #respuesta("a")[
-    // Escribir aquí la respuesta a)
+    La cola circular se usa para evitar el desplazamiento de elementos en un arreglo tradicional. En una cola común, al sacar el primero y luego reencolar, podría ser necesario mover todos los elementos hacia adelante; eso es costoso y poco eficiente. La cola circular usa índices `head` y `tail` para reutilizar posiciones del arreglo y evitar ese movimiento.
   ]
   #respuesta("b")[
-    // Escribir aquí la respuesta b)
+    Si `head` está en el índice `4` y se desencola un elemento, el nuevo frente pasa a la posición siguiente, calculada con la fórmula `head = (head + 1) % tamaño`. Eso permite que la estructura “vuelva al inicio” del arreglo sin salir de los límites del mismo.
   ]
   #respuesta("c")[
-    // Escribir aquí la respuesta c)
+    Mover todos los elementos hacia adelante cada vez que se saca uno simplifica el código, pero tiene un costo muy alto: $O(n)$ por cada eliminación. La cola circular, en cambio, mantiene un costo constante $O(1)$ para estas operaciones gracias a los índices `head` y `tail`, aunque requiere más cuidado al implementar la lógica de llenado y vaciado.
   ]
 
   *Código Fuente (`TP4_02.java`):*

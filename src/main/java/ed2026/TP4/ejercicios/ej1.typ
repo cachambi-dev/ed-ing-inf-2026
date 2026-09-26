@@ -28,16 +28,23 @@ Realizar el ingreso de $N$ enteros (simulando niveles de señal) en una cola. Ad
 
 #resolucion(titulo: "Resolución del Ejercicio 1")[
   #respuesta("a")[
-    // Escribir aquí la respuesta a)
+    Si la cola original es `[10, 50, 20, 5]` y el umbral es `15`, los elementos que superan el umbral se reubican al final. Entonces:
+
+    - `10` queda porque no supera el umbral.
+    - `50` se reubica al final.
+    - `20` se reubica al final.
+    - `5` queda porque no supera el umbral.
+
+    Resultado final: `[10, 5, 50, 20]`.
   ]
   #respuesta("b")[
-    // Escribir aquí la respuesta b)
+    Si todos los elementos superan el umbral, la cola de elementos válidos queda vacía. El algoritmo no entra en un bucle infinito porque el recorrido se controla con el tamaño original de la cola o con una condición `while (!cola.isEmpty())` sobre una cola auxiliar que se va reduciendo. La clave es que cada elemento se procesa una sola vez y luego se reencola en la estructura adecuada.
   ]
   #respuesta("c")[
-    // Escribir aquí la respuesta c)
+    Es importante usar un bucle controlado por el tamaño original porque si se usa el mismo tamaño de la cola mientras se va modificando, puede producir errores o iteraciones extra. El tamaño original representa la cantidad de elementos a procesar; al usar ese límite, se asegura que cada elemento se inspecciona exactamente una vez.
   ]
   #respuesta("d")[
-    // Escribir aquí la respuesta d)
+    Si se quisiera poner los elementos que exceden el umbral en una cola nueva, la lógica cambiaría: en lugar de reubicar dentro de la misma cola, se debería crear otra cola auxiliar y encolar allí cada elemento que supera el umbral. La cola original quedaría con solo los elementos que no superan el valor, y la nueva cola contaría los descartados o reubicados.
   ]
 
   *Código Fuente (`TP4_01.java`):*

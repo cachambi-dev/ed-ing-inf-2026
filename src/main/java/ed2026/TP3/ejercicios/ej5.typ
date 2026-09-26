@@ -44,21 +44,38 @@ Definir la clase `Pedido` con los atributos: `idPedido`, `monto` y `estaPago` (b
 
 #resolucion(titulo: "Resolución del Ejercicio 5")[
   #respuesta("a")[
-    // Escribir aquí la respuesta a)
+    En un arreglo se puede acceder por índice directamente, pero la pila no tiene acceso aleatorio. Para modificar un elemento interno sin cambiar el orden, es necesario vaciar la pila, buscar el pedido y luego restaurarla. Esa es la diferencia fundamental entre un arreglo y una estructura LIFO.
   ]
   #respuesta("b")[
-    // Escribir aquí la respuesta b)
+    Si el pedido ya estaba pagado, no se debe hacer ninguna modificación. Si el pedido no existe, la operación debe ser un no-op: no se lanza error y la pila queda igual.
   ]
   #respuesta("c")[
-    // Escribir aquí la respuesta c)
+    Sí, se mantiene el orden relativo de los pedidos pendientes si se trabaja con una pila auxiliar y al final se devuelve todo a la pila original. El programa debe conservar el orden de los elementos que no se eliminan.
   ]
   #respuesta("d")[
-    // Escribir aquí la respuesta d)
+    Esa solución compila, pero no cumple la consigna porque destruye la pila original al hacer `pop()` de todos sus elementos. La estructura queda vacía y eso rompe el requisito de que la pila debe conservarse intacta.
   ]
 
   *Código Fuente:*
   ```java
-  // Inserte o importe aquí su solución en Java
+  public static double obtenerDeudaTotal(Stack<Pedido> pila) {
+      Stack<Pedido> aux = new Stack<>();
+      double deuda = 0;
+
+      while (!pila.isEmpty()) {
+          Pedido p = pila.pop();
+          if (!p.isEstaPago()) {
+              deuda += p.getMonto();
+          }
+          aux.push(p);
+      }
+
+      while (!aux.isEmpty()) {
+          pila.push(aux.pop());
+      }
+
+      return deuda;
+  }
   ```
 ]
 

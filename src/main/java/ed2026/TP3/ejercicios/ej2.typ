@@ -26,16 +26,16 @@ Dado un arreglo de números enteros, se desea invertir únicamente los números 
 
 #resolucion(titulo: "Resolución del Ejercicio 2")[
   #respuesta("a")[
-    // Escribir aquí la respuesta a)
+    La estructura pila es ideal porque cumple la regla LIFO: el último elemento en entrar es el primero en salir. Esto permite invertir una secuencia de múltiplos de 3 de forma natural, apilándolos y luego sacándolos en orden inverso sin alterar el resto del arreglo.
   ]
   #respuesta("b")[
-    // Escribir aquí la respuesta b)
+    En general basta guardar el valor del múltiplo de 3 para invertirlo. Sin embargo, si se desea reconstruir el arreglo en su posición original, es muy útil almacenar también la posición donde estaba el elemento. La información del valor es imprescindible; la posición se usa para ubicarlo exactamente en el arreglo.
   ]
   #respuesta("c")[
-    // Escribir aquí la respuesta c)
+    Sí, la alternativa funciona. Una solución válida es guardar pares `(valor, indice)` o guardar el valor y luego reemplazarlo en la posición correcta del arreglo cuando se recorre el mismo. De esta forma, la inversión se hace manteniendo la estructura original del arreglo.
   ]
   #respuesta("d")[
-    // Escribir aquí la respuesta d)
+    Si no hay múltiplos de 3, la pila queda vacía. El programa debe manejar este caso sin errores: no se debe intentar hacer `pop()` o `peek()` sobre una pila vacía. El arreglo se mantiene sin cambios.
   ]
 
   *Código Fuente (`Tp3_02.java`):*

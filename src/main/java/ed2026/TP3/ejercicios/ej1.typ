@@ -21,21 +21,45 @@ Escribir un programa que genere 15 números enteros aleatorios (entre $-20$ y $2
 
 #resolucion(titulo: "Resolución del Ejercicio 1")[
   #respuesta("a")[
-    // Escribir aquí la respuesta a)
+    Se necesitan dos pilas auxiliares para separar los elementos: una para guardar los positivos y otra para los negativos. Además, para que la pila original quede sin modificaciones, se debe usar una pila temporal para extraer y luego restaurar los elementos originales.
   ]
   #respuesta("b")[
-    // Escribir aquí la respuesta b)
+    Si todos los números son negativos, la pila `positivos` queda vacía. En ese caso, no puede calcularse el máximo porque no existe elemento en la cima. El programa debe verificar si la pila está vacía antes de hacer `peek()` o `pop()`, mostrando un mensaje como: “La pila de positivos está vacía”.
   ]
   #respuesta("c")[
-    // Escribir aquí la respuesta c)
+    Si la pila original es (de cima a base): `-30, 10, -5, 3`, entonces se recorre la pila y se separan los elementos así:
+
+    - `-30` va a `negativos`
+    - `10` va a `positivos`
+    - `-5` va a `negativos`
+    - `3` va a `positivos`
+
+    Al finalizar, la pila `positivos` queda con `10` y `3` (de cima a base o base a cima según la representación), y la pila `negativos` queda con `-5` y `-30`. La pila original se restaura al final, manteniendo su orden inicial.
   ]
   #respuesta("d")[
-    // Escribir aquí la respuesta d)
+    Porque una pila es LIFO: el último en entrar es el primero en salir. Para separar y luego devolver los elementos sin perder su orden original, es necesario usar pilas auxiliares para guardar temporalmente los datos. Un `for` o un `ArrayList` no refleja la semántica de una pila y no garantiza que el comportamiento sea compatible con el tipo de dato abstracto `Stack`.
   ]
 
   *Código Fuente:*
   ```java
-  // Inserte o importe aquí su solución en Java
+  public static void separarPositivosNegativos(Stack<Integer> original, Stack<Integer> positivos, Stack<Integer> negativos) {
+      Stack<Integer> aux = new Stack<>();
+
+      while (!original.isEmpty()) {
+          int valor = original.pop();
+          aux.push(valor);
+
+          if (valor >= 0) {
+              positivos.push(valor);
+          } else {
+              negativos.push(valor);
+          }
+      }
+
+      while (!aux.isEmpty()) {
+          original.push(aux.pop());
+      }
+  }
   ```
 ]
 

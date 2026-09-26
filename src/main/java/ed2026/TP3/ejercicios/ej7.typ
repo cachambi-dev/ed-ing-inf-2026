@@ -45,22 +45,61 @@ public class Gestion {
 
 #resolucion(titulo: "Resolución del Ejercicio 7")[
   #respuesta("1")[
-    // Escribir aquí la respuesta 1)
+    Los errores principales son: se compara `String` con `==`, se accede directamente a atributos internos y se restaura la pila incompleta. Además, el método no recorre la pila completa ni garantiza que el orden original se mantenga.
   ]
   #respuesta("2")[
-    // Escribir aquí la respuesta 2)
+    Es un error comparar `String` con `==` porque compara referencias, no el contenido. También hay un problema de encapsulamiento porque se accede a `p.id` y `p.precio` directamente, y el bucle final solo hace un `push(aux.pop())`, que devuelve un único elemento y no restaura la pila completa.
   ]
   #respuesta("3")[
-    // Escribir aquí la respuesta 3)
+    No, la solución no responde completamente a la consigna. Al hacer `pop()` sobre la pila y devolver solo un elemento al final, la estructura original queda alterada y no se conserva el orden. Además, el método no revisa todos los elementos de la pila ni restaura la misma cantidad de elementos.
   ]
   #respuesta("4")[
-    // Escribir aquí la respuesta 4)
-  ]
+    La solución correcta debe recorrer toda la pila, comparar IDs con `.equals()`, aplicar el descuento y restaurar la pila completa:
 
-  *Código Fuente Corregido:*
-  ```java
-  // Inserte aquí el código corregido
-  ```
+    ```java
+    class Producto {
+        private String id;
+        private double precio;
+
+        public Producto(String id, double precio) {
+            this.id = id;
+            this.precio = precio;
+        }
+
+        public String getId() {
+            return id;
+        }
+
+        public double getPrecio() {
+            return precio;
+        }
+
+        public void setPrecio(double precio) {
+            this.precio = precio;
+        }
+    }
+
+    public class Gestion {
+        public static void aplicarDescuento(Stack<Producto> pila, String idBuscado) {
+            Stack<Producto> aux = new Stack<>();
+
+            while (!pila.isEmpty()) {
+                Producto p = pila.pop();
+
+                if (p.getId().equals(idBuscado)) {
+                    p.setPrecio(p.getPrecio() * 0.90);
+                }
+
+                aux.push(p);
+            }
+
+            while (!aux.isEmpty()) {
+                pila.push(aux.pop());
+            }
+        }
+    }
+    ```
+  ]
 ]
 
 #line(length: 100%, stroke: 0.5pt + rgb("#e2e8f0"))

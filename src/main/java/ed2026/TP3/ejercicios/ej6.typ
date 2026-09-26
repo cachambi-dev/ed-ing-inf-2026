@@ -60,13 +60,13 @@ A continuación, se presentan dos soluciones propuestas por distintos estudiante
 
 #resolucion(titulo: "Resolución del Ejercicio 6")[
   #respuesta("1")[
-    // Escribir aquí la respuesta 1)
+    La Solución B respeta mejor la consigna porque explícitamente conserva la pila original y reconstruye su orden al final. La Solución A depende del comportamiento nativo de `toArray()` y no deja claro si se respetan las restricciones del ejercicio ni si la pila original queda intacta.
   ]
   #respuesta("2")[
-    // Escribir aquí la respuesta 2)
+    La Solución B es más fácil de explicar porque muestra la lógica LIFO de una pila: sacar elementos, guardar el valor en el arreglo y luego devolver los elementos a la pila original. En cambio, la Solución A usa métodos nativos de Java que ocultan el mecanismo y no hacen evidente la intención pedagógica del ejercicio.
   ]
   #respuesta("3")[
-    // Escribir aquí la respuesta 3)
+    La Solución A tiene la ventaja de ser más corta y simple, pero es menos clara y puede ocultar problemas de orden o restauración. La Solución B es más larga, pero es más segura, más didáctica y cumple mejor con la restricción de no modificar la pila original.
   ]
 ]
 

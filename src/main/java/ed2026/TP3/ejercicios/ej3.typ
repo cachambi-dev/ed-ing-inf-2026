@@ -32,16 +32,18 @@ Dada una pila cargada con $N$ números enteros generados de manera aleatoria, im
 
 #resolucion(titulo: "Resolución del Ejercicio 3")[
   #respuesta("a")[
-    // Escribir aquí la respuesta a)
+    Si la cantidad de elementos es par, la “mitad” no está definida como un único elemento; se toma la posición central según la cantidad total. Por ejemplo, con 4 elementos, la mitad es el tercer elemento contando desde la base. Si la pila tiene 1 elemento o está vacía, no se puede intercambiar nada: el método debe devolver sin hacer cambios.
   ]
   #respuesta("b")[
-    // Escribir aquí la respuesta b)
+    La cima es el valor `1`, por lo que los elementos mayores que la cima son `8`, `2` y `5`. En total, la cantidad es `3`.
+
+    Si se intercambia la cima con el elemento central, la pila pasa de `8, 2, 5, 1` (base a cima) a `8, 2, 1, 5` (base a cima).
   ]
   #respuesta("c")[
-    // Escribir aquí la respuesta c)
+    Si un compañero hace `pop()` de todos los elementos para contarlos y no los devuelve a la pila original, entonces la pila queda modificada. Falta la etapa de restauración: guardar los elementos en una pila auxiliar y al final reponerlos en la misma posición y orden original.
   ]
   #respuesta("d")[
-    // Escribir aquí la respuesta d)
+    En general, no se puede ordenar una pila ascendentemente usando solo una pila auxiliar sin perder control del orden y sin hacer comparaciones complejas. Para ordenar correctamente normalmente se requieren dos pilas auxiliares o un enfoque más elaborado. Una sola pila no es suficiente para garantizar el orden final sin alterar el conjunto de elementos.
   ]
 
   *Código Fuente (`Tp3_03.java`):*

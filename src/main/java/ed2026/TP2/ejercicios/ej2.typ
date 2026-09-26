@@ -27,16 +27,16 @@ Crear un programa para la gestión de vuelos en un aeródromo. Solicitar la cant
 
 #resolucion(titulo: "Resolución del Ejercicio 2")[
   #respuesta("a")[
-    // Escribir aquí la respuesta a)
+    Los arreglos paralelos permiten guardar dos piezas de información relacionados entre sí: el número de vuelo y su estado. Si se reorganiza un arreglo sin actualizar el otro de forma simultánea, se rompe la correspondencia entre ambos. Por eso ambos arreglos deben moverse siempre en conjunto.
   ]
   #respuesta("b")[
-    // Escribir aquí la respuesta b)
+    En el punto d) se deben mover todos los vuelos cancelados al final, manteniendo el orden relativo de los demás. Si hay cancelados al principio, en medio o al final, el algoritmo debe dejar todos los cancelados al final y conservar el resto en el mismo orden relativo.
   ]
   #respuesta("c")[
-    // Escribir aquí la respuesta c)
+    Si se agrega la fecha de salida, la estructura de arreglos paralelos se vuelve más incómoda porque cada vuelo requeriría un arreglo adicional para fechas. Una alternativa es crear una clase `Vuelo` con atributos `numero`, `estado` y `fecha`, y luego almacenar objetos de ese tipo en un único arreglo.
   ]
   #respuesta("d")[
-    // Escribir aquí la respuesta d)
+    Para crear un nuevo arreglo con los vuelos de un estado específico, primero se debe contar cuántos elementos cumplen la condición. Una vez calculado ese tamaño, se crea el arreglo con dimensión exacta y se llena con los elementos que correspondan al estado solicitado.
   ]
 
   *Código Fuente:*

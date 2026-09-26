@@ -27,16 +27,22 @@ Realizar un programa que permita al usuario ingresar cualquier cantidad de carac
 
 #resolucion(titulo: "Resolución del Ejercicio 3")[
   #respuesta("a")[
-    // Escribir aquí la respuesta a)
+    Un arreglo estático como `char[]` con tamaño fijo tiene la ventaja de ser simple y de memoria predecible, pero puede ser poco flexible si no se sabe cuántos caracteres va a ingresar el usuario. Un `ArrayList<Character>` permite crecer dinámicamente, pero requiere más manejo de referencias y más overhead de memoria.
   ]
   #respuesta("b")[
-    // Escribir aquí la respuesta b)
+    Si el arreglo está vacío o no tiene vocales, el método debe devolver `-1` o un mensaje de “no encontrado”. Eso evita lanzar una excepción por índice fuera de rango y permite que el programa siga ejecutándose de forma segura.
   ]
   #respuesta("c")[
-    // Escribir aquí la respuesta c)
+    En un `ArrayList`, el intercambio entre elementos se hace con una variable auxiliar. Por ejemplo:
+
+    ```java
+    char aux = caracteres.get(i);
+    caracteres.set(i, caracteres.get(j));
+    caracteres.set(j, aux);
+    ```
   ]
   #respuesta("d")[
-    // Escribir aquí la respuesta d)
+    El método útil es `Character.toLowerCase()` o `Character.toUpperCase()` junto con comparaciones de igualdad. Así se ignoran mayúsculas y minúsculas y se puede contar repeticiones sin distinguir entre letras iguales en distintos casos.
   ]
 
   *Código Fuente:*

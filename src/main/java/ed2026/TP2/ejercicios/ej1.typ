@@ -26,16 +26,19 @@ Desarrollar un programa que solicite al usuario un valor entero $N$. Generar $N$
 
 #resolucion(titulo: "Resolución del Ejercicio 1")[
   #respuesta("a")[
-    // Escribir aquí la respuesta a)
+    En el punto a), el método debe devolver un arreglo nuevo porque la consigna pide “devolver otro arreglo”. En el punto c), el método debe modificar el original, por eso su firma no devuelve un valor: `void invertirArreglo(int[] arreglo)`. El método trabaja sobre la misma estructura y cambia posiciones dentro del arreglo original.
   ]
   #respuesta("b")[
-    // Escribir aquí la respuesta b)
+    Si `N = 0`, el arreglo tiene longitud cero. El desplazamiento y la inversión deben manejarse sin errores: ambos bucles no ejecutan ninguna iteración, por lo que el programa debe salir normalmente sin lanzar excepciones. Es necesario validar la entrada antes de operar.
   ]
   #respuesta("c")[
-    // Escribir aquí la respuesta c)
+    Si el arreglo original es `[10, -5, 3, 0]`:
+
+    - Punto a): desplazamiento a la izquierda → `[ -5, 3, 0, 10 ]`
+    - Punto c): inversión del arreglo original → `[ 0, 3, -5, 10 ]`
   ]
   #respuesta("d")[
-    // Escribir aquí la respuesta d)
+    Modificar el arreglo original es más eficiente en memoria porque no requiere crear otro arreglo, pero se pierde la versión original si luego se necesita conservarla. Crear un nuevo arreglo mantiene la estructura original intacta, aunque usa más memoria y más tiempo de ejecución.
   ]
 
   *Código Fuente:*

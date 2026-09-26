@@ -61,20 +61,50 @@ public class GestionRRHH {
 
 #resolucion(titulo: "Resolución del Ejercicio 8")[
   #respuesta("1")[
-    // Escribir aquí la respuesta 1)
+    Los errores principales son: el mensaje “Legajo no encontrado” se imprime en cada iteración aunque el legajo sí exista; además, el algoritmo para buscar el mayor sueldo actualiza el sueldo del empleado en vez de actualizar al empleado completo. Por último, no se controla el caso de arreglo vacío.
   ]
   #respuesta("2")[
-    // Escribir aquí la respuesta 2)
+    El primer error es lógico porque el mensaje debe mostrarse solo si no se encuentra el legajo. El segundo error es conceptual porque se debe actualizar el objeto `Empleado` que tenga el mayor sueldo, no solo su atributo `sueldo`. Si el arreglo está vacío, se debe manejar la situación sin lanzar excepción.
   ]
   #respuesta("3")[
-    // Escribir aquí la respuesta 3)
+    La solución no responde completamente a la consigna porque no informa correctamente el empleado buscado y el mayor sueldo se calcula sobre el atributo sueldo en lugar de sobre el empleado completo. Además, no valida arreglos vacíos.
   ]
   #respuesta("4")[
-    // Escribir aquí la respuesta 4)
-  ]
+    La solución correcta debe buscar el legajo con una bandera, y en el caso del mayor sueldo mantener la referencia del empleado candidato. Un ejemplo es:
 
-  *Código Fuente Corregido (`GestionRRHH.java`):*
-  ```java
-  // Inserte aquí su solución corregida y refactorizada
-  ```
+    ```java
+    public class GestionRRHH {
+        public static void main(String[] args) {
+            Empleado[] empleados = {
+                new Empleado(101, "Ana", 500.0),
+                new Empleado(102, "Beto", 700.0),
+                new Empleado(103, "Carla", 600.0)
+            };
+
+            int legajoBuscado = 102;
+            boolean encontrado = false;
+            for (Empleado empleado : empleados) {
+                if (empleado != null && empleado.getLegajo() == legajoBuscado) {
+                    System.out.println("Encontrado: " + empleado.getNombre());
+                    encontrado = true;
+                    break;
+                }
+            }
+            if (!encontrado) {
+                System.out.println("Legajo no encontrado.");
+            }
+
+            Empleado mayorSueldo = null;
+            for (Empleado empleado : empleados) {
+                if (empleado != null && (mayorSueldo == null || empleado.getSueldo() > mayorSueldo.getSueldo())) {
+                    mayorSueldo = empleado;
+                }
+            }
+            if (mayorSueldo != null) {
+                System.out.println("Mayor sueldo: " + mayorSueldo.getNombre());
+            }
+        }
+    }
+    ```
+  ]
 ]

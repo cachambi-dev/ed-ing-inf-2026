@@ -28,21 +28,27 @@ Crear la clase `Equipo` con los atributos: `idEquipo`, `nombre`, `puntajeAcumula
 
 #resolucion(titulo: "Resolución del Ejercicio 4")[
   #respuesta("a")[
-    // Escribir aquí la respuesta a)
+    En el punto a) se debe validar que el `idEquipo` exista en el arreglo. Si no existe, el programa debe informar que no se encontró el equipo y no debe provocar una excepción. La validación se hace recorriendo el arreglo hasta encontrar una coincidencia.
   ]
   #respuesta("b")[
-    // Escribir aquí la respuesta b)
+    Si todos tienen el mismo puntaje, el punto d) debe informar que el líder es el primero encontrado o el que aparece en la posición inicial, según la lógica del algoritmo. El punto e) debe mostrar que todos están por encima o por debajo del promedio según el caso, y en igualdad se puede decidir una política explícita.
   ]
   #respuesta("c")[
-    // Escribir aquí la respuesta c)
+    Crear un método `calcularPromedio()` centraliza el cálculo y evita repetir lógica en varios puntos. Esto hace que el programa sea más claro, más fácil de mantener y menos propenso a errores de implementación.
   ]
   #respuesta("d")[
-    // Escribir aquí la respuesta d)
+    No hace falta crear un arreglo nuevo: basta con recorrer el arreglo existente comparando valores y guardar la referencia del equipo con menor puntaje. Esto es más eficiente porque se trabaja sobre la misma estructura y no se duplican datos.
   ]
 
   *Código Fuente:*
   ```java
-  // Inserte o importe aquí su solución en Java
+  public static double calcularPromedio(Equipo[] equipos) {
+      int total = 0;
+      for (Equipo equipo : equipos) {
+          total += equipo.getPuntajeAcumulado();
+      }
+      return equipos.length == 0 ? 0 : total / (double) equipos.length;
+  }
   ```
 ]
 

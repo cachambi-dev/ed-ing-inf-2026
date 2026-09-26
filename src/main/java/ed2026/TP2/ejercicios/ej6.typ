@@ -29,21 +29,32 @@ Se desea cargar, en una matriz de dos dimensiones, las ventas realizadas por var
 
 #resolucion(titulo: "Resolución del Ejercicio 6")[
   #respuesta("a")[
-    // Escribir aquí la respuesta a)
+    Las operaciones por vendedores requieren recorrer cada fila completa. Las operaciones por días requieren recorrer cada columna completa. Esto implica que para calcular totales por vendedor se recorre la matriz por filas, y para obtener promedios diarios se recorre por columnas.
   ]
   #respuesta("b")[
-    // Escribir aquí la respuesta b)
+    Si un vendedor tuvo cero ventas en todos los días, su total será cero y su promedio también será cero. Esto no produce error, pero hay que manejarlo con división segura para evitar una operación inválida.
   ]
   #respuesta("c")[
-    // Escribir aquí la respuesta c)
+    Si la matriz es:
+
+    - fila 0: 100, 200
+    - fila 1: 300, 400
+
+    El promedio del día 2 (columna 1) es `(200 + 400) / 2 = 300`. Las ventas que superan 300 son solo 400, por lo que el número de ventas que lo superan es `1`.
   ]
   #respuesta("d")[
-    // Escribir aquí la respuesta d)
+    Para saber cuál fue el día más productivo, es necesario recorrer la matriz por columnas y acumular el total de cada día, guardando además el índice del día con mayor suma. Esto requiere una variable para el máximo acumulado y otra para el índice del día.
   ]
 
   *Código Fuente:*
   ```java
-  // Inserte o importe aquí su solución en Java
+  public static double promedioDia(int[][] ventas, int columna) {
+      double total = 0;
+      for (int fila = 0; fila < ventas.length; fila++) {
+          total += ventas[fila][columna];
+      }
+      return ventas.length == 0 ? 0 : total / ventas.length;
+  }
   ```
 ]
 

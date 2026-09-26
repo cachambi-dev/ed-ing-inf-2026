@@ -27,21 +27,29 @@ Crear un programa que simule una biblioteca personal, para lo cual se debe crear
 
 #resolucion(titulo: "Resolución del Ejercicio 5")[
   #respuesta("a")[
-    // Escribir aquí la respuesta a)
+    No es conveniente crear un arreglo fijo de 1000 posiciones si la cantidad de libros no se conoce de antemano, porque puede quedar mucho espacio innecesario. Una solución más flexible es usar un `ArrayList<Libro>` o un arreglo con tamaño dinámico según la cantidad de libros cargados.
   ]
   #respuesta("b")[
-    // Escribir aquí la respuesta b)
+    Si el ISBN no existe, el programa debe informar que no fue encontrado y no debe provocar una excepción. En la práctica, se devuelve `-1` o `null` para indicar ausencia.
   ]
   #respuesta("c")[
-    // Escribir aquí la respuesta c)
+    Si se elimina el libro de la posición 1, el libro que estaba en la posición 2 pasa a ocupar la posición 1; en general, todos los elementos posteriores se corren una posición hacia atrás.
   ]
   #respuesta("d")[
-    // Escribir aquí la respuesta d)
+    Eliminar el libro viejo y agregar otro nuevo funciona, pero es menos elegante que modificar el objeto existente con `setAutor()` o `setAnio()`. La opción de modificar el objeto preserva la misma referencia y evita desplazamientos innecesarios en el arreglo.
   ]
 
   *Código Fuente:*
   ```java
-  // Inserte o importe aquí su solución en Java
+  public static void actualizarLibro(Libro[] biblioteca, String isbn, String nuevoAutor, int nuevoAnio) {
+      for (int i = 0; i < biblioteca.length; i++) {
+          if (biblioteca[i] != null && biblioteca[i].getIsbn().equals(isbn)) {
+              biblioteca[i].setAutor(nuevoAutor);
+              biblioteca[i].setAnioPublicacion(nuevoAnio);
+              return;
+          }
+      }
+  }
   ```
 ]
 

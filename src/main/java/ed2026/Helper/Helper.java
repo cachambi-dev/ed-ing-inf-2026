@@ -1,4 +1,7 @@
 package ed2026.Helper;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Scanner;
 
 /**
@@ -69,6 +72,24 @@ public class Helper {
 
     public static Integer nextInteger(Scanner scanner, String mensaje){
         return nextInteger(scanner, mensaje, 0);
+    }
+
+    /**
+     * Metodo que valida el ingreso de valores decimales.
+     */
+    public static Double nextDouble(Scanner scanner, String mensaje) {
+        while (true) {
+            System.out.println(mensaje);
+            if (scanner.hasNextDouble()) {
+                return scanner.nextDouble();
+            }
+            System.out.println("[Error] Valor invalido, debe ser un numero decimal");
+            scanner.next();
+        }
+    }
+
+    public static Double nextDouble(String mensaje) {
+        return nextDouble(Helper.scanner, mensaje);
     }
 
      /**
@@ -142,6 +163,27 @@ public class Helper {
     public static String nextString(String mensaje) {
         System.out.println(mensaje);
         return scanner.nextLine();
+    }
+
+    /**
+     * Solicita una fecha con formato dd/MM/yyyy y la devuelve como Date.
+     */
+    public static Date nextDate(Scanner scanner, String mensaje) {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        dateFormat.setLenient(false);
+
+        while (true) {
+            System.out.println(mensaje + " (dd/MM/yyyy)");
+            try {
+                return dateFormat.parse(scanner.nextLine());
+            } catch (ParseException exception) {
+                System.out.println("[Error] Fecha invalida. Use el formato dd/MM/yyyy.");
+            }
+        }
+    }
+
+    public static Date nextDate(String mensaje) {
+        return nextDate(Helper.scanner, mensaje);
     }
 
 }

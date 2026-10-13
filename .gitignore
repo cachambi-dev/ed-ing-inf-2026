@@ -29,3 +29,6 @@ replay_pid*
 # Typ dentro de target, incluyendo subcarpetas
 target/**/*.typ
 target/*
+
+#VS Code
+.vscode/

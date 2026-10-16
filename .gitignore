@@ -32,3 +32,6 @@ target/*
 
 #VS Code
 .vscode/
+
+# Classpath file
+.classpath

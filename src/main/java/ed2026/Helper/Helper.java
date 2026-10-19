@@ -2,6 +2,7 @@ package ed2026.Helper;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Random;
 import java.util.Scanner;
 
 /**
@@ -13,6 +14,8 @@ public class Helper {
      * Scanner estatico para ser usado en toda la aplicacion
      */
     static Scanner scanner = new Scanner(System.in);
+
+    public static Random random = new Random();
 
     /**
      * Metodo que valida el ingreso de caracteres
@@ -57,6 +60,10 @@ public class Helper {
      */
     public static Integer nextInteger(String mensaje, int min ){
         return nextInteger(Helper.scanner,mensaje, min);
+    }
+
+    public static Integer getInteger(String mensaje) {
+        return nextInteger(Helper.scanner, mensaje);
     }
 
     /**

@@ -34,6 +34,10 @@ public class GestorTareas {
         }
     }
 
+    public void completarTarea(int idTarea) {
+        completarTareas(idTarea);
+    }
+
     public SimpleLinkedList<Tarea> devolverTareasPorResponsable(String responsable) {
         SimpleLinkedList<Tarea> aux = new SimpleLinkedList<>();
         for (Tarea t : this.tareas) {
@@ -45,28 +49,29 @@ public class GestorTareas {
     }
 
     public void mostrarTareasPendientes() {
-        for (Tarea t : this.tareas) {
-            if (!t.getCompletada()) {
-                System.out.println(t);
-
-            }
+        for (Tarea tarea : tareasPendientes()) {
+            System.out.println(tarea);
         }
     }
 
-    public void eliminarTarea(int idTarea){
-        SimpleLinkedList<Tarea> aux = new SimpleLinkedList<>();
-
-        for(Tarea t: this.tareas){
-            if (t.getId() != idTarea) {
-                aux.addFirst(t);
+    public SimpleLinkedList<Tarea> tareasPendientes() {
+        SimpleLinkedList<Tarea> pendientes = new SimpleLinkedList<>();
+        for (Tarea tarea : tareas) {
+            if (!tarea.getCompletada()) {
+                pendientes.addLast(tarea);
             }
         }
-        while (this.tareas.size() > 0) {
-            this.tareas.removeFirst();
-        }
+        return pendientes;
+    }
 
-        while (aux.size()>0) {
-            this.tareas.addFirst(aux.removeFirst());
+    public void eliminarTarea(int idTarea){
+        int index = 0;
+        for (Tarea tarea : tareas) {
+            if (tarea.getId() == idTarea) {
+                tareas.remove(index);
+                return;
+            }
+            index++;
         }
     }
 
@@ -74,7 +79,7 @@ public class GestorTareas {
         SimpleLinkedList<Tarea> aux = new SimpleLinkedList<>();
         Date fechaActual = new Date();
         for (Tarea t : this.tareas) {
-            if (t.getResponsable().equals(responsable) && !t.getCompletada() && t.getFechaLimite().after(fechaActual)) {
+            if (t.getResponsable().equals(responsable) && t.getFechaLimite().after(fechaActual)) {
                 aux.addLast(t);
             }
         }

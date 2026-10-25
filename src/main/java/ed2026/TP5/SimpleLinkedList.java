@@ -56,6 +56,24 @@ public class SimpleLinkedList<ELEMENT> implements ILinkedList<ELEMENT> {
         return this.count;
     }
 
+    public ELEMENT getFirst() {
+        if (this.count == 0) {
+            throw new RuntimeException("La lista está vacía...");
+        }
+        return this.head.item;
+    }
+
+    public ELEMENT get(int index) {
+        if (index < 0 || index >= this.count) {
+            throw new IndexOutOfBoundsException("Posicion invalida");
+        }
+        Node<ELEMENT> current = this.head;
+        for (int i = 0; i < index; i++) {
+            current = current.next;
+        }
+        return current.item;
+    }
+
     public void addFirstRookieVersion(ELEMENT item) {
         if (this.count == 0) {
             this.head = this.tail = new Node<ELEMENT>(item, null);
@@ -179,6 +197,25 @@ public class SimpleLinkedList<ELEMENT> implements ILinkedList<ELEMENT> {
         this.count--;
         return nodeRemove.item;
 
+    }
+
+    public void eliminarPares() {
+        while (this.head != null && ((Integer) this.head.item) % 2 == 0) {
+            removeFirst();
+        }
+
+        Node<ELEMENT> previous = this.head;
+        while (previous != null && previous.next != null) {
+            if (((Integer) previous.next.item) % 2 == 0) {
+                if (previous.next == this.tail) {
+                    this.tail = previous;
+                }
+                previous.next = previous.next.next;
+                this.count--;
+            } else {
+                previous = previous.next;
+            }
+        }
     }
     //endregion
 

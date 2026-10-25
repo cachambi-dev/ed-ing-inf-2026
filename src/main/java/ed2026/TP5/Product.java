@@ -4,16 +4,13 @@ package ed2026.TP5;
 // Created by Julio Tentor <jtentor@fi.unju.edu.ar>
 //
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
 public class Product {
 
     //region Attributes
     private Integer code;
-    private String description;
-    private Date expirationDate;
-    private Double salePrice;
+    private String name;
+    private Double price;
+    private Integer stock;
     //endregion
 
     //region Getters and Setters
@@ -25,57 +22,51 @@ public class Product {
         this.code = code;
     }
 
-    public String getDescription() {
-        return description;
+    public String getName() {
+        return name;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public Date getExpirationDate() {
-        return expirationDate;
+    public Double getPrice() {
+        return price;
     }
 
-    public void setExpirationDate(Date expirationDate) {
-        this.expirationDate = expirationDate;
+    public void setPrice(Double price) {
+        this.price = price;
     }
 
-    public Double getSalePrice() {
-        return salePrice;
+    public Integer getStock() {
+        return stock;
     }
 
-    public void setSalePrice(Double salePrice) {
-        this.salePrice = salePrice;
+    public void setStock(Integer stock) {
+        this.stock = stock;
     }
     //endregion
 
     //region Constructors
     public Product() {
-        this(0, "", new Date(), 0d);
+        this(0, "", 0d, 0);
     }
 
-    public Product(Integer code, String description, Double salePrice) {
-        this(code, description, new Date(), salePrice);
-    }
-
-    public Product(Integer code, String description, Date expirationDate, Double salePrice) {
+    public Product(Integer code, String name, Double price, Integer stock) {
         setCode(code);
-        setDescription(description);
-        setExpirationDate(expirationDate);
-        setSalePrice(salePrice);
+        setName(name);
+        setPrice(price);
+        setStock(stock);
     }
     //endregion
-
-    private final static SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/YYYY");
 
     @Override
     public String toString() {
         return "Product{" +
                 "code=" + getCode() +
-                ", description='" + getDescription() + '\'' +
-                ", expirationDate=" + simpleDateFormat.format(getExpirationDate()) +
-                ", salePrice=" + getSalePrice() +
+            ", name='" + getName() + '\'' +
+            ", price=" + getPrice() +
+            ", stock=" + getStock() +
                 '}';
     }
 }

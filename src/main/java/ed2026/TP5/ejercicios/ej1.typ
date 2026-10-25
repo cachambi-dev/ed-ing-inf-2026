@@ -15,8 +15,21 @@ Agregar a `SimpleLinkedList` métodos genéricos para insertar un elemento en un
   + ¿Por qué se debe guardar temporalmente el nodo siguiente antes de cambiar `next`?
 ]
 
-#resolucion(titulo: "Implementación")[
-  El programa correspondiente se encuentra en `TP5_01.java`.
+#resolucion(titulo: "Respuestas y código")[
+  #respuesta("a")[
+    Una lista enlazada no permite calcular la dirección de un nodo a partir de su índice. Para llegar a una posición hay que comenzar en `head` y seguir los enlaces `next`; en un arreglo, en cambio, el acceso se calcula directamente mediante el índice.
+  ]
+  #respuesta("b")[
+    Insertar en la posición `0` de una lista vacía es válido: el nuevo nodo se convierte en `head` y `tail`. Eliminar en una posición igual al tamaño está fuera de rango y debe rechazarse con una excepción o un mensaje, sin modificar la lista.
+  ]
+  #respuesta("c")[
+    La lista queda `[A, D, B, C]`. El nodo `A` pasa a apuntar a `D`, y `D` apunta al nodo que antes seguía a `A`, es decir, `B`.
+  ]
+  #respuesta("d")[
+    Antes de cambiar el enlace del nodo actual se guarda su sucesor. De lo contrario, al asignar `actual.next = nuevo` se pierde la referencia al resto de la lista y los nodos siguientes quedan inaccesibles.
+  ]
+
+  El mockup carga tres productos antes de mostrar el menú, por lo que se pueden probar inmediatamente inserciones y eliminaciones. Las posiciones inválidas se informan sin finalizar el programa.
   #raw(read("../TP5_01.java"), lang: "java")
 ]
 

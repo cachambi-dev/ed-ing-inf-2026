@@ -24,6 +24,21 @@ public static double calcularPorcentajeHojas(BinarySearchTree<Integer> arbol) {
   + ¿Qué devolvería exactamente con tres nodos, dos de ellos hojas?
 ]
 
+#resolucion(titulo: "Análisis y corrección")[
+  #respuesta("a")[
+    Hay tres errores principales: `if (nodos = 0)` usa asignación en vez de comparación; `(hojas / nodos)` realiza división entera porque ambas variables son `int`; y `NodeCount()` cuenta los nodos del árbol, mientras que `size()` no es la operación apropiada para `BinarySearchTree`.
+  ]
+  #respuesta("b")[
+    La asignación no constituye una condición booleana válida en Java. Además, la división entera descarta la parte decimal antes de multiplicar por `100`, y el árbol no expone un `size()` de lista que deba usarse en este cálculo.
+  ]
+  #respuesta("c")[
+    Con 3 nodos y 2 hojas, una versión que compilara y usara división entera devolvería `0`, porque `2 / 3` se trunca a `0`. La solución propuesta ni siquiera compila por la asignación dentro del `if`.
+  ]
+  #respuesta("d")[
+    La corrección valida `arbol == null`, calcula el total con `NodeCount()`, evita dividir por cero y convierte al menos un operando a `double` antes de dividir.
+  ]
+]
+
 #resolucion(titulo: "Una corrección posible")[
 ```java
 public static double calcularPorcentajeHojas(BinarySearchTree<Integer> arbol) {

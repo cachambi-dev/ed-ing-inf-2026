@@ -10,8 +10,18 @@ Construir los árboles binarios A y B de las figuras del enunciado. Imprimir su 
   + ¿Cómo se representa un nodo sin hijo izquierdo pero con hijo derecho?
 ]
 
-#resolucion(titulo: "Implementación")[
-  El programa correspondiente se encuentra en `TP6_02.java`.
+#resolucion(titulo: "Respuestas y código")[
+  #respuesta("a")[
+    En un ABB, el recorrido in order muestra los elementos de menor a mayor y descending order los muestra de mayor a menor. Pre order y post order no garantizan orden ascendente.
+  ]
+  #respuesta("b")[
+    La apertura se imprime al entrar al nodo cuando existe al menos un hijo; luego se recorre el subárbol izquierdo y, si existe, se imprime la coma antes del derecho. El paréntesis de cierre se imprime al terminar ambos subárboles.
+  ]
+  #respuesta("c")[
+    Debe imprimirse una representación con espacio vacío para el hijo izquierdo, por ejemplo `nodo(,derecho)`. Así se conserva la información de que el hijo derecho existe y el izquierdo no.
+  ]
+
+  El mockup construye las figuras A y B y muestra sus cuatro recorridos.
   #raw(read("../TP6_02.java"), lang: "java")
 ]
 

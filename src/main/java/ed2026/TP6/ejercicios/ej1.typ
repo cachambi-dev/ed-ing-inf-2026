@@ -10,8 +10,18 @@ Utilizar `BinaryTree<T>` para construir el árbol de la figura del enunciado, cu
   + Compare contar hojas recursivamente con copiarlas a una lista y usar `size()`.
 ]
 
-#resolucion(titulo: "Implementación")[
-  El programa correspondiente se encuentra en `TP6_01.java`.
+#resolucion(titulo: "Respuestas y código")[
+  #respuesta("a")[
+    El nivel identifica la distancia de un nodo respecto de la raíz; la altura es la longitud del camino más largo desde la raíz hasta una hoja. Con la convención usada aquí, la raíz está en nivel `0` y un árbol de un solo nodo tiene altura `1` porque `Height()` devuelve `MaxLevel() + 1`.
+  ]
+  #respuesta("b")[
+    Para un árbol vacío, `NodeCount()`, `LeafCount()` e `InternalCount()` devuelven `0`; `MaxLevel()` devuelve `-1` y `Height()` devuelve `0`.
+  ]
+  #respuesta("c")[
+    El método recursivo usa memoria proporcional a la profundidad de la recursión y no crea otra colección. Copiar hojas a una lista necesita memoria adicional proporcional a la cantidad de hojas, aunque puede ser útil si luego se deben procesar o mostrar esas hojas.
+  ]
+
+  Para el árbol del enunciado se obtienen `15` nodos, `8` hojas, `7` nodos internos, máximo nivel `4` y altura `5`. El mockup ya está construido en el programa ejecutable.
   #raw(read("../TP6_01.java"), lang: "java")
 ]
 
